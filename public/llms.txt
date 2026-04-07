@@ -1,0 +1,26 @@
+# LearnHub — Online Courses Platform
+
+## What is this?
+LearnHub is a modern online learning platform offering 120+ expert-led courses across technology, design, business, and more. Students can browse courses, enroll, and advance their careers at their own pace.
+
+## Key Features
+- 120+ curated online courses
+- Expert instructors across multiple disciplines
+- Structured learning paths for career advancement
+- Responsive web experience on all devices
+- Course categories: technology, design, business, and more
+
+## Target Audience
+Students, professionals, and lifelong learners looking to upskill or switch careers.
+
+## Technology
+Built with React 18, TypeScript, Tailwind CSS, and Vite.
+
+## Pages / Routes
+- / — Homepage with hero, course overview, course grid, career CTA, and footer
+- /#courses — Browse all available courses
+- /#about — About LearnHub
+- /#contact — Contact and social links
+
+## Contact
+Visit https://learnhub.app for more information.
