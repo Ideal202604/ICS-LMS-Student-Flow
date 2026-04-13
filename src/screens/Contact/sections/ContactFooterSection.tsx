@@ -84,7 +84,7 @@ export const ContactFooterSection = (): JSX.Element => {
 
       {/* Footer Content */}
       <footer className="w-full bg-white flex flex-col items-center">
-        <div className="w-full flex flex-col items-center px-4 md:px-12 lg:px-[108px] py-12 md:py-24">
+        <div className="w-full flex flex-col items-center px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-12 md:py-24">
           <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* Logo + Description */}
             <div className="flex flex-col items-start gap-6 col-span-2 md:col-span-3 lg:col-span-1 max-w-[265px]">
@@ -171,7 +171,7 @@ export const ContactFooterSection = (): JSX.Element => {
 
       {/* Copyright Bar */}
       <div className="w-full bg-white">
-        <div className="max-w-[1392px] mx-auto px-4 md:px-[108px]">
+        <div className="max-w-[1392px] mx-auto px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
           <Separator className="bg-[#cdcdcd]" />
           <div className="py-6 text-center">
             <p className="[font-family:'Poppins',Helvetica] font-normal text-base-02 text-[14px] tracking-[0] leading-[22px]">

@@ -82,7 +82,7 @@ export const Courses = (): JSX.Element => {
     <div className="bg-[#eff7ff] w-full relative flex flex-col" data-model-id="312:2247">
 
       {/* Navigation Bar */}
-      <header className="w-full bg-white flex items-center justify-between px-4 md:px-6 relative z-50" style={{ minHeight: "81px" }}>
+      <header className="w-full h-[81px] bg-white flex items-center justify-between px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] relative z-50 shadow-sm animate-fade-in-down">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <img
@@ -190,7 +190,7 @@ export const Courses = (): JSX.Element => {
           alt="Screan"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg"
         />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center px-3 sm:px-6 md:px-12 lg:px-16">
+        <div className="absolute top-0 left-0 w-full h-full flex items-center px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
           <HeroCourseIntroductionSection />
         </div>
 

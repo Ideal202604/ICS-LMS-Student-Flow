@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 import { Checkbox } from "../../../components/ui/checkbox";
 import { Label } from "../../../components/ui/label";
+import { registerUser } from "../../../lib/api";
+import { useAuth } from "../../../lib/auth-context";
+import { showToast } from "../../../components/ui/toast";
 
 /** Form field configuration */
 const formFields = [
@@ -76,7 +79,66 @@ const socialLogins = [
 
 export const CreateAccountFormSection = (): JSX.Element => {
   const [agreed, setAgreed] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { setUser } = useAuth();
+
+  const handleRegister = async () => {
+    setError("");
+    if (!agreed) {
+      setError("Please agree to Terms and Conditions.");
+      showToast("error", "Please agree to Terms and Conditions.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      showToast("error", "Passwords do not match.");
+      return;
+    }
+    setLoading(true);
+    const res = await registerUser({
+      fullName,
+      email,
+      password,
+      role: role === "teach" ? "teacher" : "learner",
+    });
+    setLoading(false);
+    if (res.success && res.data) {
+      setUser(res.data);
+      showToast("success", `Account created! Welcome, ${res.data.fullName}!`);
+      navigate("/");
+    } else {
+      setError(res.error || "Registration failed.");
+      showToast("error", res.error || "Registration failed.");
+    }
+  };
+
+  const getFieldValue = (id: string) => {
+    switch (id) {
+      case "fullName": return fullName;
+      case "email": return email;
+      case "iWantTo": return role;
+      case "password": return password;
+      case "confirmPassword": return confirmPassword;
+      default: return "";
+    }
+  };
+
+  const setFieldValue = (id: string, value: string) => {
+    switch (id) {
+      case "fullName": setFullName(value); break;
+      case "email": setEmail(value); break;
+      case "iWantTo": setRole(value); break;
+      case "password": setPassword(value); break;
+      case "confirmPassword": setConfirmPassword(value); break;
+    }
+  };
 
   return (
     <div className="relative w-full flex justify-center">
@@ -112,7 +174,8 @@ export const CreateAccountFormSection = (): JSX.Element => {
                     <select
                       id={field.id}
                       className={`flex-1 bg-transparent border-none outline-none [font-family:'Open_Sans',Helvetica] font-normal ${field.placeholderColor} text-base tracking-[0] leading-6 cursor-pointer appearance-none`}
-                      defaultValue=""
+                      value={getFieldValue(field.id)}
+                      onChange={(e) => setFieldValue(field.id, e.target.value)}
                     >
                       <option value="" disabled>{field.placeholder}</option>
                       <option value="learn">Learn Courses</option>
@@ -123,6 +186,8 @@ export const CreateAccountFormSection = (): JSX.Element => {
                       id={field.id}
                       type={field.type}
                       placeholder={field.placeholder}
+                      value={getFieldValue(field.id)}
+                      onChange={(e) => setFieldValue(field.id, e.target.value)}
                       className={`flex-1 bg-transparent border-none outline-none [font-family:'Open_Sans',Helvetica] font-normal ${field.placeholderColor} text-base tracking-[0] leading-6 placeholder:text-slate-400`}
                     />
                   )}
@@ -150,10 +215,19 @@ export const CreateAccountFormSection = (): JSX.Element => {
             </div>
           </div>
 
+          {/* Error message */}
+          {error && (
+            <p className="w-full text-red-500 text-sm [font-family:'Open_Sans',Helvetica] font-semibold text-center">{error}</p>
+          )}
+
           {/* Create Account Button */}
-          <Button className="w-full h-auto flex items-center justify-center gap-2.5 px-[26px] py-3.5 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5]">
+          <Button
+            onClick={handleRegister}
+            disabled={loading}
+            className="w-full h-auto flex items-center justify-center gap-2.5 px-[26px] py-3.5 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5] disabled:opacity-60"
+          >
             <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-lg tracking-[0] leading-6 whitespace-nowrap">
-              Create Account
+              {loading ? "Creating Account..." : "Create Account"}
             </span>
           </Button>
         </div>

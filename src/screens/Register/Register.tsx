@@ -41,7 +41,7 @@ export const Register = (): JSX.Element => {
   return (
     <div className="flex flex-col min-h-screen w-full bg-[#eff7ff]">
       {/* Navigation Bar */}
-      <header className="w-full h-[81px] bg-white flex items-center justify-between px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] flex-shrink-0 z-10 relative animate-fade-in-down">
+      <header className="w-full h-[81px] bg-white flex items-center justify-between px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] flex-shrink-0 z-10 relative shadow-sm animate-fade-in-down">
         {/* Logo */}
         <img
           className="w-[50px] md:w-[69px] h-auto object-contain cursor-pointer"

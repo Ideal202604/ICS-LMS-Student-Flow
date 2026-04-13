@@ -23,11 +23,11 @@ const articles = [
 
 export const LatestArticlesSection = (): JSX.Element => {
   return (
-    <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-[30px] w-full">
+    <div className="flex-desktop-3 items-stretch justify-center w-full">
       {articles.map((article, index) => (
         <Card
           key={index}
-          className={`card-animate flex flex-col items-start rounded-[20px] border border-solid border-[#e9e9e9] overflow-hidden flex-1 w-full md:max-w-[410px] bg-white p-0 animate-slide-in-up ${index === 1 ? 'animation-delay-200' : index === 2 ? 'animation-delay-400' : ''}`}
+          className={`card-animate flex flex-col items-start rounded-[20px] border border-solid border-[#e9e9e9] overflow-hidden w-full bg-white p-0 animate-slide-in-up ${index === 1 ? 'animation-delay-200' : index === 2 ? 'animation-delay-400' : ''}`}
         >
           <img
             className="w-full h-[250px] rounded-t-[20px] object-cover"

@@ -52,11 +52,11 @@ export const FeaturedCoursesSection = (): JSX.Element => {
   const [enrollModal, setEnrollModal] = useState<{ open: boolean; title: string; price: string; originalPrice: string }>({ open: false, title: "", price: "", originalPrice: "" });
 
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-11 w-full justify-center">
+    <div className="flex-desktop-3 items-center md:items-stretch w-full justify-center">
       {courses.map((course) => (
         <Card
           key={course.id}
-          className="card-animate flex w-full max-w-[457px] min-h-[500px] sm:min-h-[559px] items-start gap-2.5 p-3 sm:p-6 md:p-8 bg-white rounded-2xl border border-solid border-[#d9edff] shadow-[0px_4px_4px_#9cd2ff40] animate-slide-in-up"
+          className="card-animate flex w-full min-h-[500px] sm:min-h-[559px] items-start gap-2.5 p-3 sm:p-6 md:p-8 bg-white rounded-2xl border border-solid border-[#d9edff] shadow-[0px_4px_4px_#9cd2ff40] animate-slide-in-up"
         >
           <CardContent className="p-0 flex flex-col w-full items-center gap-6">
             {/* Thumbnail + rating badge */}

@@ -19,11 +19,11 @@ const testimonials = [
 export const TestimonialCarouselSection = (): JSX.Element => {
   return (
     <div className="w-full flex justify-center overflow-x-auto">
-      <div className="flex gap-4 sm:gap-6 lg:gap-[46px] px-4 sm:px-0">
+      <div className="flex gap-4 sm:gap-6 lg:gap-[46px] px-4 sm:px-0 flex-nowrap">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="w-[260px] sm:w-[280px] lg:w-[316px] h-[420px] sm:h-[480px] lg:h-[568px] relative overflow-hidden rounded-[20px] flex-shrink-0"
+            className="w-[260px] sm:w-[280px] lg:w-[316px] h-[420px] sm:h-[480px] lg:h-[568px] relative overflow-hidden rounded-[20px] flex-shrink-0 min-w-[260px]"
           >
             {/* Background image */}
             <img

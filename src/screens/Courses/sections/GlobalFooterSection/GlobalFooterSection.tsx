@@ -95,7 +95,7 @@ export const GlobalFooterSection = (): JSX.Element => {
       </div>
 
       {/* Footer Links Section */}
-      <div className="w-full bg-white px-6 md:px-[108px] py-12 md:py-24 flex flex-col items-center">
+      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-12 md:py-24 flex flex-col items-center">
         <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
           {/* Logo + Description */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 flex flex-col items-start gap-6">
@@ -188,7 +188,7 @@ export const GlobalFooterSection = (): JSX.Element => {
 
       {/* Copyright Bar */}
       <div className="w-full bg-white">
-        <div className="max-w-[1392px] mx-auto px-6 md:px-[108px]">
+        <div className="max-w-[1392px] mx-auto px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
           <Separator className="bg-[#cdcdcd]" />
         </div>
         <div className="py-6 flex items-center justify-center relative px-4">

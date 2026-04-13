@@ -63,7 +63,7 @@ export const Contact = (): JSX.Element => {
   return (
     <div className="relative w-full bg-white flex flex-col">
       {/* Navigation Bar */}
-      <header className="w-full h-[81px] bg-white flex items-center justify-between px-4 md:px-6 relative z-50 shadow-sm">
+      <header className="w-full h-[81px] bg-white flex items-center justify-between px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] relative z-50 shadow-sm animate-fade-in-down">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <img
@@ -188,7 +188,7 @@ export const Contact = (): JSX.Element => {
       </section>
 
       {/* Contact Form and Details side by side */}
-      <section className="w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] pb-8 sm:pb-12 md:pb-16">
+      <section className="w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] pb-8 sm:pb-12 md:pb-16">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 w-full max-w-[1392px] mx-auto">
           <div className="flex-1 min-w-0">
             <ContactFormSection />

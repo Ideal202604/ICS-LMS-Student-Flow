@@ -19,6 +19,39 @@ You MUST maintain this file to track your work across messages. This is NON-NEGO
 
 <changelog>
 ## 2026-04-13 (latest)
+- Added full in-memory backend API layer (`src/lib/api.ts`) — auth, contact, checkout, coupon validation, courses
+- Created AuthProvider context (`src/lib/auth-context.tsx`) for global user state
+- Created toast notification system (`src/components/ui/toast.tsx`) with success/error/info types
+- Wired all forms: Login, Register, Contact, Checkout billing, Enrollment modal — with validation, loading states, error display
+- Coupon codes work in enrollment modal: SAVE10, LEARN20, ICS50; discount reflected in total
+- Files: api.ts, auth-context.tsx, toast.tsx, SignInFormSection, CreateAccountFormSection, ContactFormSection, BillingFormSection, OrderSummarySection, enrollment-checkout-modal.tsx, index.tsx
+
+## 2026-04-13
+- Removed duplicate "Start Your Career Journey Today" + footer section from HomePage
+- HomePage now flows: Hero → Courses → Why Choose Us → Testimonials → Articles → Career CTA + Footer (single instance)
+- File: src/screens/HomePage/HomePage.tsx
+
+## 2026-04-13
+- Added `grid-desktop-3` and `flex-desktop-3` CSS utility classes to force 3-column card layouts at lg (1024px+) breakpoint
+- Applied to: CourseGridSection, CareerCTASection (Courses page), FeaturedCoursesSection, LatestArticlesSection (HomePage)
+- Removed max-width constraints on cards that prevented equal distribution; cards now flex equally in row
+- Ensures phone "desktop mode" (which sets viewport to ~980-1024px) renders proper 3-column grids
+- Files: tailwind.css, CourseGridSection.tsx, CareerCTASection.tsx, FeaturedCoursesSection.tsx, LatestArticlesSection.tsx
+
+## 2026-04-13
+- Updated HomePage hero to use same dark blue overlay images (screan-01.png + screan-2.svg) as Courses/About/Contact pages
+- Replaced lighter CSS gradient with the exact same layered image overlay for consistent contrast across all pages
+- Made hero section responsive: min-h-[260px] sm:380px md:500px lg:655px matching other pages
+
+## 2026-04-13
+- Standardized navbar and section margins across ALL pages to match HomePage pattern: `px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]`
+- Courses: navbar now has h-[81px], shadow-sm, animate-fade-in-down; hero content uses standard margins; CourseGrid + CareerCTA + footer all use unified padding
+- About: navbar + all content sections (overview, story, approach, testimonials) upgraded from xl:px-[120px] to xl:px-[200px] 2xl:px-[264px]
+- Contact: navbar + form section + hero banner + footer all use unified margins
+- Login/Register: added shadow-sm to navbars for visual consistency
+- Files: Courses.tsx, About.tsx, Contact.tsx, Login.tsx, Register.tsx, CourseGridSection, CareerCTASection, GlobalFooterSection, ContactHeroBannerSection, ContactFooterSection
+
+## 2026-04-13
 - Comprehensive responsive & animation pass across ALL pages (Login, Register, Home, About, Contact, Courses)
 - Phone margins tightened: `px-4` → `px-3 sm:px-6` across all headers, sections, footers
 - Media frame heights adjusted for phones: Login/Register image 180px→260px→320px→full, Courses hero 260px→380px→500px→655px, Contact hero 200px→300px→444px

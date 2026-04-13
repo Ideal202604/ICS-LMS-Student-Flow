@@ -62,7 +62,7 @@ export const About = (): JSX.Element => {
   return (
     <div className="relative flex flex-col w-full bg-white">
       {/* Navigation Bar */}
-      <header className="w-full h-[81px] bg-white flex items-center justify-between px-4 md:px-6 z-50 shadow-sm relative">
+      <header className="w-full h-[81px] bg-white flex items-center justify-between px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] z-50 shadow-sm relative animate-fade-in-down">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <img
@@ -184,12 +184,12 @@ export const About = (): JSX.Element => {
       </section>
 
       {/* About Overview Section */}
-      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] animate-slide-in-up">
+      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] animate-slide-in-up">
         <AboutOverviewSection />
       </div>
 
       {/* About Story + Mission Vision Sections side by side */}
-      <div className="w-full flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-16 px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] py-6 sm:py-8 md:py-16">
+      <div className="w-full flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-16 px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 sm:py-8 md:py-16">
         <div className="flex-1 animate-slide-in-left">
           <AboutStorySection />
         </div>
@@ -199,7 +199,7 @@ export const About = (): JSX.Element => {
       </div>
 
       {/* Approach area with light background */}
-      <div className="w-full bg-[#f0f8ff] px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] py-8 sm:py-12 md:py-16">
+      <div className="w-full bg-[#f0f8ff] px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-8 sm:py-12 md:py-16">
         <div className="animate-slide-in-up">
           <ApproachHeadingSection />
         </div>
@@ -209,7 +209,7 @@ export const About = (): JSX.Element => {
       </div>
 
       {/* Testimonial Section */}
-      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] py-8 sm:py-12 md:py-16">
+      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-8 sm:py-12 md:py-16">
         <div className="animate-slide-in-up">
           <TestimonialHeadingSection />
         </div>

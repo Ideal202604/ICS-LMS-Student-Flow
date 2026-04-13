@@ -234,6 +234,40 @@
   animation: slide-in-up 0.8s ease-out forwards;
 }
 
+/* ─── Force desktop grid: always 3 columns at lg+ ─── */
+.grid-desktop-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .grid-desktop-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid-desktop-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Force flex 3-col for article/course card rows */
+.flex-desktop-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .flex-desktop-3 {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .flex-desktop-3 > * {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+}
+
 /* Delay utilities */
 .animation-delay-100 { animation-delay: 0.1s; }
 .animation-delay-200 { animation-delay: 0.2s; }

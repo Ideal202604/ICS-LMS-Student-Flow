@@ -62,7 +62,7 @@ export const WhyChooseUsSection = (): JSX.Element => {
       {/* Footer Content */}
       <footer className="w-full bg-white flex flex-col items-center">
         <div className="w-full flex justify-center px-3 sm:px-6 md:px-12 lg:px-[108px] py-8 sm:py-12 md:py-24">
-            <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8" style={{ minWidth: 0 }}>
             {/* Logo + description */}
             <div className="flex flex-col items-start gap-6 col-span-2 md:col-span-3 lg:col-span-1 max-w-[265px]">
               <img

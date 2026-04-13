@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "./button";
 import { Card, CardContent } from "./card";
 import { Input } from "./input";
+import { validateCoupon } from "../../lib/api";
+import { showToast } from "./toast";
 
 /** Props for the EnrollmentCheckoutModal */
 export interface EnrollmentCheckoutModalProps {
@@ -48,11 +50,31 @@ export const EnrollmentCheckoutModal = ({
   onCheckout,
 }: EnrollmentCheckoutModalProps): JSX.Element | null => {
   const [couponCode, setCouponCode] = useState("");
+  const [discountPercent, setDiscountPercent] = useState(0);
+  const [discountLabel, setDiscountLabel] = useState("");
+  const [couponLoading, setCouponLoading] = useState(false);
   const navigate = useNavigate();
 
   if (!isOpen) return null;
 
-  const totalAmount = coursePrice;
+  const basePrice = 900;
+  const discountedTotal = basePrice - (basePrice * discountPercent) / 100;
+  const totalAmount = discountPercent > 0 ? `\u20B9${discountedTotal.toFixed(2)}` : coursePrice;
+
+  const handleApplyCoupon = async () => {
+    setCouponLoading(true);
+    const res = await validateCoupon(couponCode);
+    setCouponLoading(false);
+    if (res.success && res.data) {
+      setDiscountPercent(res.data.discount);
+      setDiscountLabel(res.data.label);
+      showToast("success", `Coupon applied! ${res.data.label}`);
+    } else {
+      setDiscountPercent(0);
+      setDiscountLabel("");
+      showToast("error", res.error || "Invalid coupon.");
+    }
+  };
 
   return (
     <div
@@ -147,9 +169,10 @@ export const EnrollmentCheckoutModal = ({
               <Button
                 variant="outline"
                 className={`h-9 px-4 py-2 bg-[#f8f9fa] rounded-[10px] border border-solid border-gray-200 [font-family:'Open_Sans',Helvetica] font-semibold text-gray-800 text-base text-center tracking-[0] leading-5 whitespace-nowrap ${!couponCode ? "opacity-50" : "opacity-100"}`}
-                disabled={!couponCode}
+                disabled={!couponCode || couponLoading}
+                onClick={handleApplyCoupon}
               >
-                Apply
+                {couponLoading ? "..." : "Apply"}
               </Button>
             </div>
           </div>
@@ -173,6 +196,17 @@ export const EnrollmentCheckoutModal = ({
                 {originalPrice}
               </span>
             </div>
+            {/* Discount Row */}
+            {discountLabel && (
+              <div className="flex items-center justify-between w-full">
+                <span className="[font-family:'Open_Sans',Helvetica] font-normal text-green-600 text-base tracking-[0] leading-5 whitespace-nowrap">
+                  Coupon Discount
+                </span>
+                <span className="[font-family:'Inter',Helvetica] font-semibold text-green-600 text-base tracking-[0] leading-5 whitespace-nowrap">
+                  -{discountLabel}
+                </span>
+              </div>
+            )}
             {/* Total Amount Row */}
             <div className="flex items-center justify-between w-full pt-3 border-t border-solid border-gray-200">
               <span className="[font-family:'Inter',Helvetica] font-semibold text-gray-800 text-lg tracking-[0] leading-7 whitespace-nowrap">

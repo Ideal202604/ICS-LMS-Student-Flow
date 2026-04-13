@@ -1,6 +1,6 @@
 export const ContactHeroBannerSection = (): JSX.Element => {
   return (
-    <div className="flex flex-col w-full max-w-[696px] items-start gap-6 px-4 sm:px-8 md:px-12 lg:px-16">
+    <div className="flex flex-col w-full max-w-[696px] items-start gap-6 px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
       <div className="flex flex-col items-start gap-8 w-full">
         <div className="flex flex-col items-start gap-6 w-full">
           {/* Support badge */}

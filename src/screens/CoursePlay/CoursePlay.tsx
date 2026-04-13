@@ -6,36 +6,46 @@ import { CourseSyllabusSidebarSection } from "./sections/CourseSyllabusSidebarSe
 
 export const CoursePlay = (): JSX.Element => {
   return (
-    <div className="relative w-full bg-white flex flex-col">
+    <div className="w-full min-h-screen bg-white flex flex-col">
       {/* Top Navigation Bar */}
-      <header className="w-full bg-white flex items-center px-6 py-4 border-b border-gray-100">
-        <div className="flex items-center gap-3">
+      <header className="w-full h-[81px] bg-white flex items-center px-6 shrink-0 border-b border-gray-100">
+        {/* Left side: back arrow + course title */}
+        <div className="flex items-center gap-3 flex-1 min-w-0">
           <img
-            className="w-6 h-6"
+            className="w-6 h-6 shrink-0"
             alt="Layer"
-            src="https://c.animaapp.com/mnx1pxe5WuKivI/img/layer-2.png"
+            src="https://c.animaapp.com/mnx5m6v2Jq3hjq/img/layer-2.png"
           />
-          <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-2xl tracking-[0] leading-8 whitespace-nowrap">
+          <h1 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-2xl tracking-[0] leading-8 whitespace-nowrap truncate">
             Research Writing &amp; AI: Beginner to Advanced
+          </h1>
+        </div>
+        {/* Right side: vertical separator + syllabus label */}
+        <div className="flex items-center shrink-0 ml-4">
+          <Separator orientation="vertical" className="h-10 mr-6" />
+          <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-2xl tracking-[0] leading-8 whitespace-nowrap">
+            syllabus
           </span>
         </div>
       </header>
-      {/* Main Two-Column Layout */}
-      <div className="flex w-full flex-1">
-        {/* Left Column - Video Area (empty placeholder matching image) */}
-        <div className="flex flex-col flex-1 min-w-0"></div>
-        {/* Vertical Divider */}
-        <Separator orientation="vertical" className="h-auto self-stretch" />
-        {/* Right Column - Hero Banner + Syllabus Sidebar */}
-        <div className="flex flex-col w-[770px] shrink-0">
-          {/* Sidebar Header Row */}
-          <div className="flex items-center justify-between px-6 h-20 border-b border-gray-200">
-            <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-2xl tracking-[0] leading-8 whitespace-nowrap">
-              syllabus
-            </span>
-          </div>
-          {/* Analytics Row */}
-          <div className="flex items-center justify-between px-6 h-20 border-b border-gray-200">
+      {/* Main content area: two-column layout */}
+      <div className="flex flex-row w-full flex-1">
+        {/* Left column: video/image area */}
+        <div className="flex flex-col" style={{ flex: "0 0 59.6%" }}>
+          <img
+            className="w-full object-cover rounded-br-[12px] border-[16px] border-solid border-[#f7f7f8]"
+            style={{ aspectRatio: "1144/591" }}
+            alt="Container"
+            src="https://c.animaapp.com/mnx5m6v2Jq3hjq/img/container.png"
+          />
+        </div>
+        {/* Right column: analytics header + sections */}
+        <div className="flex flex-col flex-1 border-l border-gray-200">
+          {/* Analytics row */}
+          <div
+            className="flex items-center justify-between px-6 py-4 border-b border-gray-200"
+            style={{ minHeight: "80px" }}
+          >
             <span className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-2xl tracking-[0] leading-8 whitespace-nowrap">
               Course Analytics
             </span>
@@ -45,13 +55,19 @@ export const CoursePlay = (): JSX.Element => {
               </span>
             </Button>
           </div>
-          {/* Hero Banner Section */}
-          <CourseHeroBannerSection />
-          {/* Syllabus Sidebar Section */}
-          <CourseSyllabusSidebarSection />
+          {/* CourseHeroBannerSection in right column */}
+          <div className="w-full">
+            <CourseHeroBannerSection />
+          </div>
+          {/* Separator line */}
+          <Separator className="w-full" />
+          {/* CourseSyllabusSidebarSection */}
+          <div className="w-full flex-1">
+            <CourseSyllabusSidebarSection />
+          </div>
         </div>
       </div>
-      {/* Full Width Course Overview Detail Section */}
+      {/* CourseOverviewDetailSection - full width below */}
       <div className="w-full">
         <CourseOverviewDetailSection />
       </div>

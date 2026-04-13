@@ -1,15 +1,45 @@
-import { Card, CardContent } from "../../../components/ui/card";
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../../../components/ui/card";
 import { Input } from "../../../components/ui/input";
 import { Label } from "../../../components/ui/label";
 
 // Form fields data
-const formFields = [
+const billingFields = [
   { id: "fullName", label: "Full Name", placeholder: "Full name" },
   { id: "emailAddress", label: "Email Address", placeholder: "Email Address" },
   { id: "phoneNumber", label: "Phone Number", placeholder: "Phone Number" },
 ];
 
+export interface BillingData {
+  fullName: string;
+  emailAddress: string;
+  phoneNumber: string;
+}
+
+// Emit billing data changes to parent via a global event-like pattern
+let billingDataCallback: ((data: BillingData) => void) | null = null;
+export function onBillingDataChange(cb: (data: BillingData) => void) {
+  billingDataCallback = cb;
+}
+
 export const BillingFormSection = (): JSX.Element => {
+  const [values, setValues] = useState<BillingData>({
+    fullName: "",
+    emailAddress: "",
+    phoneNumber: "",
+  });
+
+  const handleChange = (id: string, value: string) => {
+    const updated = { ...values, [id]: value };
+    setValues(updated);
+    billingDataCallback?.(updated);
+  };
+
   return (
     <div className="flex flex-col items-start justify-center gap-[45px] w-full relative">
       {/* Header section */}
@@ -24,40 +54,35 @@ export const BillingFormSection = (): JSX.Element => {
         </div>
       </div>
       {/* Billing Details Card */}
-      <Card className="w-full bg-white rounded-2xl border border-solid border-gray-200 shadow-[0px_1px_2px_-1px_#0000001a,0px_1px_3px_#0000001a]">
-        <CardContent className="flex flex-col gap-6 pt-[25px] pb-px px-[25px]">
-          {/* Card heading */}
-          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-gray-800 text-2xl tracking-[0] leading-7 whitespace-nowrap">
+      <Card className="w-full bg-white rounded-2xl border border-solid border-[hsl(var(--border))]">
+        <CardHeader className="pt-[25px] px-[25px] pb-0">
+          <CardTitle className="[font-family:'Open_Sans',Helvetica] font-semibold text-gray-800 text-2xl tracking-[0] leading-7">
             Billing Details
-          </h2>
-          {/* Form fields */}
-          <div className="flex flex-col items-start gap-5 self-stretch w-full">
-            {formFields.map((field) => (
-              <div
-                key={field.id}
-                className="flex flex-col items-start gap-2 self-stretch w-full"
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="px-[25px] pt-6 pb-px flex flex-col gap-5">
+          {billingFields.map((field) => (
+            <div key={field.id} className="flex flex-col gap-2 w-full">
+              {/* Label with required asterisk */}
+              <Label
+                htmlFor={field.id}
+                className="[font-family:'Open_Sans',Helvetica] font-semibold text-gray-800 text-base tracking-[0] leading-[14px] whitespace-nowrap flex items-center gap-1"
               >
-                {/* Label with required asterisk */}
-                <div className="flex flex-row items-center gap-0.5">
-                  <Label
-                    htmlFor={field.id}
-                    className="[font-family:'Open_Sans',Helvetica] font-semibold text-gray-800 text-base tracking-[0] leading-[14px] whitespace-nowrap"
-                  >
-                    {field.label}
-                  </Label>
-                  <span className="[font-family:'Inter',Helvetica] font-medium text-gray-800 text-sm tracking-[0] leading-[14px] ml-1">
-                    *
-                  </span>
-                </div>
-                {/* Input field */}
-                <Input
-                  id={field.id}
-                  placeholder={field.placeholder}
-                  className="h-9 px-3 py-1 bg-white rounded-[10px] border border-gray-200 [font-family:'Open_Sans',Helvetica] font-normal text-gray-500 text-base tracking-[0] w-full"
-                />
-              </div>
-            ))}
-          </div>
+                {field.label}
+                <span className="[font-family:'Inter',Helvetica] font-medium text-gray-800 text-sm leading-[14px]">
+                  *
+                </span>
+              </Label>
+              {/* Input field styled to match the design */}
+              <Input
+                id={field.id}
+                placeholder={field.placeholder}
+                value={values[field.id as keyof BillingData]}
+                onChange={(e) => handleChange(field.id, e.target.value)}
+                className="h-9 px-3 py-1 bg-white rounded-[10px] border border-transparent [font-family:'Open_Sans',Helvetica] font-normal text-gray-500 text-base tracking-[0] leading-normal placeholder:text-gray-500 placeholder:text-base placeholder:[font-family:'Open_Sans',Helvetica]"
+              />
+            </div>
+          ))}
         </CardContent>
       </Card>
     </div>
