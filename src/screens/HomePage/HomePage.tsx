@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
-import { ChatWidget, type ChatMessage } from "../../components/ui/chat-widget";
+import { FloatingChatButtons } from "../../components/ui/floating-chat-buttons";
 import { CareerCallToActionSection } from "./sections/CareerCallToActionSection";
 import { FeaturedCoursesSection } from "./sections/FeaturedCoursesSection";
 import { HeroBannerSection } from "./sections/HeroBannerSection";
@@ -12,8 +12,8 @@ import { WhyChooseUsSection } from "./sections/WhyChooseUsSection";
 const navItems = [
   { label: "Home", icon: "https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-10.svg", active: true, href: "/" },
   { label: "Courses", icon: "https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-22.svg", active: false, href: "/courses" },
-  { label: "About", icon: "https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-4.svg", active: false, href: "/" },
-  { label: "Contact", icon: "https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-7.svg", active: false, href: "/" },
+  { label: "About", icon: "https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-4.svg", active: false, href: "/about" },
+  { label: "Contact", icon: "https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-7.svg", active: false, href: "/contact" },
 ];
 
 const whyChooseUsCards = [
@@ -47,45 +47,37 @@ const whyChooseUsCards = [
   },
 ];
 
-const chatMessages: ChatMessage[] = [
-  { id: 1, type: "user", text: "Hello, how are you doing?", time: "08:15 AM" },
-  { id: 2, type: "assistant", text: "I\u2019m doing well, thank you! How can I help you today?", time: "08:16 AM" },
-  { id: 3, type: "user", text: "I have a question about the return policy for a product I purchased.", time: "Just Now" },
-  { id: 4, type: "assistant", text: null, time: null },
-];
-
 export const HomePage = (): JSX.Element => {
   const navigate = useNavigate();
-  const [chatOpen, setChatOpen] = React.useState(false);
 
   return (
     <div className="relative w-full bg-white overflow-x-hidden flex flex-col">
       {/* ── Navigation Bar ── */}
-      <header className="w-full h-[81px] bg-white flex items-center justify-between relative z-10 shadow-sm">
-        <div className="flex items-center pl-[264px]">
+      <header className="w-full h-[81px] bg-white flex items-center justify-between relative z-10 shadow-sm px-4 md:px-8 lg:px-16 xl:px-[264px]">
+        <div className="flex items-center">
           <img
             className="w-[69px] h-[84px] object-contain"
             alt="Ics png"
             src="https://c.animaapp.com/mnwpw3l9jXfMum/img/ics-png-2.png"
           />
         </div>
-        <nav className="flex items-center h-[50px]">
+        <nav className="hidden md:flex items-center h-[50px]">
           {navItems.map((item) => (
             <button
               key={item.label}
               onClick={() => navigate(item.href)}
-              className={`inline-flex h-12 items-center justify-center gap-2.5 px-5 py-4 relative rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? "bg-[#e8f6ff]" : ""}`}
+              className={`inline-flex h-12 items-center justify-center gap-2.5 px-3 lg:px-5 py-4 relative rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? "bg-[#e8f6ff]" : ""}`}
             >
               <img className="relative w-6 h-6" alt="Frame" src={item.icon} />
               <span
-                className={`[font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.active ? "text-accent-buttons-links" : "text-primary-headings-navigation"}`}
+                className={`hidden lg:inline [font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.active ? "text-accent-buttons-links" : "text-primary-headings-navigation"}`}
               >
                 {item.label}
               </span>
             </button>
           ))}
         </nav>
-        <div className="flex items-center gap-4 pr-[264px]">
+        <div className="flex items-center gap-2 md:gap-4">
           <Button
             variant="outline"
             className="h-auto bg-white inline-flex items-center justify-center gap-2.5 px-5 py-4 rounded-lg border-0 shadow-none"
@@ -131,7 +123,7 @@ export const HomePage = (): JSX.Element => {
             backgroundSize: "cover",
           }}
         />
-        <div className="relative z-10 w-full pl-[264px] pr-[264px] py-16">
+        <div className="relative z-10 w-full px-4 md:px-8 lg:px-16 xl:px-[264px] py-8 md:py-16">
           <HeroBannerSection />
         </div>
       </section>
@@ -146,7 +138,7 @@ export const HomePage = (): JSX.Element => {
             Upgrade your skills with industry-ready courses designed to boost your career.
           </p>
         </div>
-        <div className="relative w-full px-[264px] pb-4">
+        <div className="relative w-full px-4 md:px-8 lg:px-16 xl:px-[264px] pb-4">
           <FeaturedCoursesSection />
         </div>
         <div className="flex items-center justify-center py-8">
@@ -177,7 +169,7 @@ export const HomePage = (): JSX.Element => {
           </p>
         </div>
         {/* Cards + Center Image */}
-        <div className="flex items-stretch justify-center gap-8 pb-12 px-[264px]">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-8 pb-12 px-4 md:px-8 lg:px-16 xl:px-[264px]">
           {/* Left cards */}
           <div className="flex flex-col gap-6 flex-1">
             {[whyChooseUsCards[0], whyChooseUsCards[2]].map((card) => (
@@ -202,9 +194,9 @@ export const HomePage = (): JSX.Element => {
             ))}
           </div>
           {/* Center image */}
-          <div className="flex-shrink-0 w-[435px] flex items-center">
+          <div className="flex-shrink-0 w-full max-w-[435px] flex items-center justify-center">
             <img
-              className="w-[435px] h-[504px] object-cover"
+              className="w-full max-w-[435px] h-auto max-h-[504px] object-cover"
               alt="Rectangle"
               src="https://c.animaapp.com/mnwpw3l9jXfMum/img/rectangle-39407.png"
             />
@@ -248,7 +240,7 @@ export const HomePage = (): JSX.Element => {
             What Students Say About Academy LMS
           </p>
         </div>
-        <div className="relative flex items-center justify-center px-[220px] pb-12">
+        <div className="relative flex items-center justify-center px-4 md:px-12 lg:px-[100px] xl:px-[220px] pb-12">
           <div className="flex-shrink-0 mr-4">
             <img
               className="w-11 h-11 cursor-pointer"
@@ -279,7 +271,7 @@ export const HomePage = (): JSX.Element => {
             Explore our Free Articles
           </p>
         </div>
-        <div className="w-full pb-12 px-[264px]">
+        <div className="w-full pb-12 px-4 md:px-8 lg:px-16 xl:px-[264px]">
           <LatestArticlesSection />
         </div>
       </section>
@@ -290,34 +282,7 @@ export const HomePage = (): JSX.Element => {
       </section>
 
       {/* Floating Chat Widget */}
-      <div className="fixed bottom-8 right-8 flex flex-col items-end gap-4 z-50">
-        {chatOpen && (
-          <ChatWidget
-            title="ICS Chat"
-            subtitle="Get Help 24x7"
-            messages={chatMessages}
-            assistantAvatar="https://c.animaapp.com/mnwu5sfyzRwXn5/img/ellipse-1-1.png"
-            open={chatOpen}
-            onClose={() => setChatOpen(false)}
-            onSend={(text) => console.log("Sent:", text)}
-            className="shadow-[0px_30px_60px_#0072de26] animate-fade-in"
-          />
-        )}
-        <div className="flex flex-col items-center gap-4">
-          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
-            <img className="w-14 h-14 drop-shadow-lg" alt="WhatsApp" src="https://c.animaapp.com/mnmyaijxgewU4q/img/group-40187.png" />
-          </a>
-          <button
-            onClick={() => setChatOpen((prev) => !prev)}
-            className="w-14 h-14 rounded-full bg-[#0072de] flex items-center justify-center shadow-lg transition-transform hover:scale-110"
-            aria-label="Toggle chat"
-          >
-            <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <FloatingChatButtons />
     </div>
   );
 };

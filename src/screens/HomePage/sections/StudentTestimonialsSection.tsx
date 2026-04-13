@@ -28,11 +28,11 @@ const testimonials = [
 
 export const StudentTestimonialsSection = (): JSX.Element => {
   return (
-    <div className="inline-flex items-center gap-[35px] relative">
+    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-[35px] relative w-full">
       {testimonials.map((testimonial, index) => (
-        <div key={index} className="relative w-[625px] h-[239px]">
+        <div key={index} className="relative w-full max-w-[625px] min-h-[239px] flex flex-col sm:flex-row sm:block">
           {/* Text content positioned to the right of the image */}
-          <div className="absolute top-[15px] left-[279px] w-[348px] h-[209px] flex flex-col">
+          <div className="sm:absolute sm:top-[15px] sm:left-[279px] w-full sm:w-[348px] sm:h-[209px] flex flex-col px-4 sm:px-0 mt-4 sm:mt-0">
             {/* Star rating image */}
             <img
               className="w-[121px] h-[18.09px]"
@@ -61,7 +61,7 @@ export const StudentTestimonialsSection = (): JSX.Element => {
           </div>
           {/* Person photo */}
           <img
-            className={`absolute top-0 left-0 w-[239px] h-[239px] object-cover ${testimonial.bgRounded}`}
+            className={`sm:absolute sm:top-0 sm:left-0 w-[180px] sm:w-[239px] h-[180px] sm:h-[239px] object-cover mx-auto sm:mx-0 ${testimonial.bgRounded}`}
             alt="Bg"
             src={testimonial.bgImg}
           />

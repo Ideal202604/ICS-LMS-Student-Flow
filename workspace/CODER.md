@@ -12,4 +12,8 @@ Keep entries sorted in DESC order (newest first) so recent knowledge stays in pr
 
 <coder>
 # File Content Goes Here
+
+## Shared Components
+- `src/components/ui/floating-chat-buttons.tsx` — Global floating WhatsApp + chat widget + scroll-to-top arrow used on all pages. WhatsApp number: 919890451547. Scroll-to-top arrow auto-shows after 300px scroll. Import as `<FloatingChatButtons />` and place at bottom of each screen component.
+- `src/components/ui/chat-widget.tsx` — Reusable chat widget with header, message bubbles, typing indicator, and input. Used by FloatingChatButtons.
 </coder>

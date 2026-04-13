@@ -31,10 +31,10 @@ const socialIcons = [
 
 export const AuthShowcaseSection = (): JSX.Element => {
   return (
-    <footer className="w-full bg-white px-[108px] py-16">
-      <div className="flex flex-row items-start justify-between w-full max-w-[1392px] mx-auto">
+    <footer className="w-full bg-white px-4 md:px-12 lg:px-[108px] py-8 md:py-16">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 w-full max-w-[1392px] mx-auto">
         {/* Logo and description */}
-        <div className="flex flex-col items-start gap-6 max-w-[265px]">
+        <div className="flex flex-col items-start gap-6 col-span-2 md:col-span-3 lg:col-span-1 max-w-[265px]">
           <img
             className="w-[145px] h-[135px]"
             alt="ICS Logo"

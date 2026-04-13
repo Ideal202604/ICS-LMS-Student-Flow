@@ -84,7 +84,7 @@ export const CreateAccountFormSection = (): JSX.Element => {
         {/* Header */}
         <div className="flex flex-col items-center gap-[45px] w-full">
           <div className="flex flex-col items-center gap-[15px] w-full">
-            <h1 className="w-full [font-family:'Open_Sans',Helvetica] font-semibold text-[#080814] text-[52px] text-center tracking-[-2.00px] leading-[62px]">
+            <h1 className="w-full [font-family:'Open_Sans',Helvetica] font-semibold text-[#080814] text-[28px] sm:text-[40px] lg:text-[52px] text-center tracking-[-1px] lg:tracking-[-2.00px] leading-[36px] sm:leading-[48px] lg:leading-[62px]">
               Create Account
             </h1>
             <p className="w-full [font-family:'Open_Sans',Helvetica] font-normal text-zinc-600 text-lg text-center tracking-[0] leading-[30px]">
@@ -159,18 +159,18 @@ export const CreateAccountFormSection = (): JSX.Element => {
         </div>
 
         {/* Social Login Options */}
-        <div className="flex items-center gap-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
           {socialLogins.map((social) => (
             <button
               key={social.id}
-              className="inline-flex items-center gap-6 cursor-pointer bg-transparent border-none"
+              className="inline-flex items-center gap-3 sm:gap-6 cursor-pointer bg-transparent border-none"
             >
               <img
-                className="w-11 h-11 object-cover"
+                className="w-8 sm:w-11 h-8 sm:h-11 object-cover"
                 alt={social.imgAlt}
                 src={social.imgSrc}
               />
-              <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-base tracking-[0] leading-7 whitespace-nowrap">
+              <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-sm sm:text-base tracking-[0] leading-7 whitespace-nowrap">
                 {social.label}
               </span>
             </button>

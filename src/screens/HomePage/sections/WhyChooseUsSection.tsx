@@ -61,10 +61,10 @@ export const WhyChooseUsSection = (): JSX.Element => {
 
       {/* Footer Content */}
       <footer className="w-full bg-white flex flex-col items-center">
-        <div className="w-full flex justify-center px-[108px] py-24">
-          <div className="w-full max-w-[1392px] flex flex-row items-start justify-between gap-8 flex-wrap">
+        <div className="w-full flex justify-center px-4 md:px-12 lg:px-[108px] py-12 md:py-24">
+            <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* Logo + description */}
-            <div className="flex flex-col items-start gap-6 max-w-[265px]">
+            <div className="flex flex-col items-start gap-6 col-span-2 md:col-span-3 lg:col-span-1 max-w-[265px]">
               <img
                 className="w-[145px] h-[135px]"
                 alt="Ics png"
@@ -151,20 +151,6 @@ export const WhyChooseUsSection = (): JSX.Element => {
         </div>
       </footer>
 
-      {/* Scroll to top */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="w-[60px] h-[60px] flex items-center justify-center rounded-full overflow-hidden"
-          aria-label="Scroll to top"
-        >
-          <img
-            className="w-[60px] h-[60px]"
-            alt="Scroll to top"
-            src="https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-73.svg"
-          />
-        </button>
-      </div>
     </section>
   );
 };

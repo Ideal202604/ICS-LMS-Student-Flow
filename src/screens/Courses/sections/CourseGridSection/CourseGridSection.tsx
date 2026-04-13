@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { EnrollmentCheckoutModal } from "../../../../components/ui/enrollment-checkout-modal";
 
 const coursesData = [
   {
     id: 1,
+    slug: "digital-marketing-using-ai",
     image: "https://c.animaapp.com/mnmyaijxgewU4q/img/rectangle-9796-5.png",
     rating: "4.5",
     title: "Digital Marketing Using AI",
@@ -18,6 +21,7 @@ const coursesData = [
   },
   {
     id: 2,
+    slug: "research-writing-ai",
     image: "https://c.animaapp.com/mnmyaijxgewU4q/img/rectangle-9796-4.png",
     rating: "4.5",
     title: "Research Writing & AI",
@@ -31,6 +35,7 @@ const coursesData = [
   },
   {
     id: 3,
+    slug: "digital-marketing-using-ai-2",
     image: "https://c.animaapp.com/mnmyaijxgewU4q/img/rectangle-9796-5.png",
     rating: "4.5",
     title: "Digital Marketing Using AI",
@@ -54,15 +59,20 @@ type FeedbackMap = { [id: number]: "enrolled" | "details" | null };
 
 export const CourseGridSection = (): JSX.Element => {
   const [feedback, setFeedback] = useState<FeedbackMap>({});
+  const [enrollModal, setEnrollModal] = useState<{ open: boolean; title: string; price: string; originalPrice: string }>({ open: false, title: "", price: "", originalPrice: "" });
+  const navigate = useNavigate();
 
-  const handleEnroll = (id: number) => {
-    setFeedback((prev) => ({ ...prev, [id]: "enrolled" }));
-    setTimeout(() => setFeedback((prev) => ({ ...prev, [id]: null })), 2500);
+  const handleEnroll = (course: typeof coursesData[0]) => {
+    setEnrollModal({
+      open: true,
+      title: course.title,
+      price: course.discountedPrice + " inc. tax",
+      originalPrice: course.originalPrice,
+    });
   };
 
-  const handleDetails = (id: number) => {
-    setFeedback((prev) => ({ ...prev, [id]: "details" }));
-    setTimeout(() => setFeedback((prev) => ({ ...prev, [id]: null })), 2500);
+  const handleDetails = (slug: string) => {
+    navigate(`/courses/${slug}`);
   };
 
   return (
@@ -151,7 +161,7 @@ export const CourseGridSection = (): JSX.Element => {
             <div className="gap-2.5 inline-flex items-center w-full justify-center flex-wrap">
               <Button
                 variant="outline"
-                onClick={() => handleDetails(course.id)}
+                onClick={() => handleDetails(course.slug)}
                 className="h-auto gap-2 px-5 py-2.5 bg-white rounded-xl border border-solid border-[#8ab5dd] inline-flex items-center transition-colors hover:bg-[#e9f6ff]"
               >
                 <img className="w-5 h-5" alt="Details" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-8.svg" />
@@ -160,7 +170,7 @@ export const CourseGridSection = (): JSX.Element => {
                 </span>
               </Button>
               <Button
-                onClick={() => handleEnroll(course.id)}
+                onClick={() => handleEnroll(course)}
                 className="h-auto gap-2 px-5 py-2.5 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] inline-flex items-center justify-center transition-colors hover:bg-[#005bbf]"
               >
                 <img className="w-5 h-5" alt="Start Learning" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame.svg" />
@@ -172,6 +182,14 @@ export const CourseGridSection = (): JSX.Element => {
           </CardContent>
         </Card>
       ))}
+
+      <EnrollmentCheckoutModal
+        isOpen={enrollModal.open}
+        onClose={() => setEnrollModal((prev) => ({ ...prev, open: false }))}
+        title={enrollModal.title}
+        coursePrice={enrollModal.price}
+        originalPrice={enrollModal.originalPrice}
+      />
     </div>
   );
 };

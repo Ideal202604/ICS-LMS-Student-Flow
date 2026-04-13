@@ -1,9 +1,13 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent } from "../../../components/ui/card";
+import { EnrollmentCheckoutModal } from "../../../components/ui/enrollment-checkout-modal";
 
 const courses = [
   {
     id: 1,
+    slug: "research-writing-ai",
     image: "https://c.animaapp.com/mnwpw3l9jXfMum/img/rectangle-9796.png",
     rating: "4.5",
     title: "Research Writing & AI",
@@ -22,6 +26,7 @@ const courses = [
   },
   {
     id: 2,
+    slug: "digital-marketing-using-ai",
     image: "https://c.animaapp.com/mnwpw3l9jXfMum/img/rectangle-9796-1.png",
     rating: "4.5",
     title: "Digital Marketing Using AI",
@@ -41,12 +46,15 @@ const courses = [
 ];
 
 export const FeaturedCoursesSection = (): JSX.Element => {
+  const navigate = useNavigate();
+  const [enrollModal, setEnrollModal] = useState<{ open: boolean; title: string; price: string; originalPrice: string }>({ open: false, title: "", price: "", originalPrice: "" });
+
   return (
-    <div className="flex items-center gap-11 w-full justify-center">
+    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-11 w-full justify-center">
       {courses.map((course) => (
         <Card
           key={course.id}
-          className="flex w-[457px] min-h-[559px] items-start gap-2.5 p-8 bg-white rounded-2xl border border-solid border-[#d9edff] shadow-[0px_4px_4px_#9cd2ff40]"
+          className="flex w-full max-w-[457px] min-h-[559px] items-start gap-2.5 p-4 sm:p-8 bg-white rounded-2xl border border-solid border-[#d9edff] shadow-[0px_4px_4px_#9cd2ff40]"
         >
           <CardContent className="p-0 flex flex-col w-full items-center gap-6">
             {/* Thumbnail + rating badge */}
@@ -77,7 +85,7 @@ export const FeaturedCoursesSection = (): JSX.Element => {
               </p>
             </div>
             {/* Badges */}
-            <div className="gap-10 inline-flex items-center">
+            <div className="gap-4 sm:gap-10 inline-flex items-center flex-wrap justify-center">
               {course.badges.map((badge, index) => (
                 <div
                   key={index}
@@ -108,9 +116,10 @@ export const FeaturedCoursesSection = (): JSX.Element => {
               </div>
             </div>
             {/* Action Buttons */}
-            <div className="gap-4 inline-flex items-center">
+            <div className="gap-3 sm:gap-4 inline-flex items-center flex-wrap justify-center">
               <Button
                 variant="outline"
+                onClick={() => navigate(`/courses/${course.slug}`)}
                 className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-gray-50"
               >
                 <img className="w-6 h-6" alt="Details" src={course.detailsIcon} />
@@ -118,7 +127,10 @@ export const FeaturedCoursesSection = (): JSX.Element => {
                   Details
                 </span>
               </Button>
-              <Button className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5]">
+              <Button
+                onClick={() => setEnrollModal({ open: true, title: course.title, price: course.currentPrice + " inc. tax", originalPrice: course.originalPrice })}
+                className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5]"
+              >
                 <img className="w-6 h-6" alt="Start Learning" src={course.startIcon} />
                 <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-lg tracking-[0] leading-6 whitespace-nowrap">
                   Start Learning
@@ -128,6 +140,13 @@ export const FeaturedCoursesSection = (): JSX.Element => {
           </CardContent>
         </Card>
       ))}
+      <EnrollmentCheckoutModal
+        isOpen={enrollModal.open}
+        onClose={() => setEnrollModal((prev) => ({ ...prev, open: false }))}
+        title={enrollModal.title}
+        coursePrice={enrollModal.price}
+        originalPrice={enrollModal.originalPrice}
+      />
     </div>
   );
 };

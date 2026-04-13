@@ -29,9 +29,9 @@ Add course detail modal/page
 Show full course syllabus, instructor info, and enroll CTA when "Details" is clicked
 </todo>
 
-<todo id="auth-modal">
-Wire up Login & Register buttons
-Add a modal or dedicated auth page with form validation and feedback
+<todo id="auth-validation">
+Add form validation to Login & Register
+Email format check, password strength indicator, error messages on submit
 </todo>
 
 <todo id="search-filter">

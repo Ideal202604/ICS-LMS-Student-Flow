@@ -37,10 +37,10 @@ const socialIcons = [
 
 export const FooterInfoSection = (): JSX.Element => {
   return (
-    <footer className="w-full bg-white px-[108px] py-24 flex flex-col items-center">
-      <div className="w-full max-w-[1392px] flex flex-row items-start justify-between">
+    <footer className="w-full bg-white px-4 md:px-12 lg:px-[108px] py-12 md:py-24 flex flex-col items-center">
+      <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         {/* Logo and description */}
-        <div className="flex flex-col items-start gap-6 flex-shrink-0">
+        <div className="flex flex-col items-start gap-6 col-span-2 md:col-span-3 lg:col-span-1">
           <img
             className="w-[145px] h-[135px]"
             alt="ICS Logo"
@@ -52,7 +52,7 @@ export const FooterInfoSection = (): JSX.Element => {
         </div>
 
         {/* Quick Links */}
-        <div className="flex flex-col items-start gap-6 w-[172px] mt-5">
+        <div className="flex flex-col items-start gap-6 mt-0 lg:mt-5">
           <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px]">
             Quick Links
           </h3>
@@ -70,7 +70,7 @@ export const FooterInfoSection = (): JSX.Element => {
         </div>
 
         {/* Company */}
-        <div className="flex flex-col items-start gap-6 mt-5">
+        <div className="flex flex-col items-start gap-6 mt-0 lg:mt-5">
           <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px] whitespace-nowrap">
             Company
           </h3>
@@ -88,7 +88,7 @@ export const FooterInfoSection = (): JSX.Element => {
         </div>
 
         {/* Contact Information */}
-        <div className="flex flex-col items-start gap-6 mt-5">
+        <div className="flex flex-col items-start gap-6 mt-0 lg:mt-5">
           <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px] whitespace-nowrap">
             Contact Information
           </h3>
@@ -104,7 +104,7 @@ export const FooterInfoSection = (): JSX.Element => {
         </div>
 
         {/* Follow Us */}
-        <div className="flex flex-col items-start gap-6 w-[156px] mt-5">
+        <div className="flex flex-col items-start gap-6 mt-0 lg:mt-5">
           <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px]">
             Follow Us
           </h3>

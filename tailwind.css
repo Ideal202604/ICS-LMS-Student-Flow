@@ -7,7 +7,7 @@
   }
 }
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Montserrat:600|Poppins:var(--regular-13px-font-weight)");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Montserrat:600|Inter:400|Plus+Jakarta+Sans:700|Poppins:var(--regular-13px-font-weight)");
 
 :root {
   --accent-buttons-links: rgba(0, 114, 222, 1);
@@ -22,6 +22,9 @@
   --colordark-grey: rgba(85, 85, 85, 1);
   --gray-900: rgba(24, 24, 27, 1);
   --primary-headings-navigation: rgba(26, 54, 93, 1);
+  --gray-300: rgba(212, 212, 216, 1);
+  --grey: rgba(134, 134, 134, 1);
+  --success-correct-answers: rgba(22, 163, 74, 1);
   --regular-13px-font-family: "Poppins", Helvetica;
   --regular-13px-font-size: 14px;
   --regular-13px-font-style: normal;

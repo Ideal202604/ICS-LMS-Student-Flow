@@ -23,11 +23,11 @@ const articles = [
 
 export const LatestArticlesSection = (): JSX.Element => {
   return (
-    <div className="flex items-stretch justify-center gap-[30px] w-full">
+    <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 md:gap-[30px] w-full">
       {articles.map((article, index) => (
         <Card
           key={index}
-          className="flex flex-col items-start rounded-[20px] border border-solid border-[#e9e9e9] overflow-hidden flex-1 max-w-[410px] bg-white p-0"
+          className="flex flex-col items-start rounded-[20px] border border-solid border-[#e9e9e9] overflow-hidden flex-1 w-full md:max-w-[410px] bg-white p-0"
         >
           <img
             className="w-full h-[250px] rounded-t-[20px] object-cover"

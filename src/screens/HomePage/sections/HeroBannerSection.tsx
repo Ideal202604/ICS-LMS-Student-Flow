@@ -15,7 +15,7 @@ export const HeroBannerSection = (): JSX.Element => {
           </div>
           {/* Heading and description */}
           <div className="flex flex-col items-start gap-4 relative self-stretch w-full">
-            <h1 className="w-full [text-shadow:0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-7xl tracking-[0] leading-[84px]">
+            <h1 className="w-full [text-shadow:0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-3xl sm:text-5xl lg:text-7xl tracking-[0] leading-[40px] sm:leading-[56px] lg:leading-[84px]">
               Master In-Demand Skills
               <br />
               With Expert-Led Courses

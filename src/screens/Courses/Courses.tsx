@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
+import { FloatingChatButtons } from "../../components/ui/floating-chat-buttons";
 import { CareerCTASection } from "./sections/CareerCTASection/CareerCTASection";
 import { CourseGridSection } from "./sections/CourseGridSection/CourseGridSection";
 import { CoursesOverviewSection } from "./sections/CoursesOverviewSection";
@@ -26,7 +27,7 @@ const navItems = [
   },
   {
     label: "About",
-    href: "#about",
+    href: "/about",
     icon: "https://c.animaapp.com/mnmyaijxgewU4q/img/frame-46.svg",
     active: false,
     activeColor: "text-primary-headings-navigation",
@@ -34,7 +35,7 @@ const navItems = [
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/contact",
     icon: "https://c.animaapp.com/mnmyaijxgewU4q/img/frame-11.svg",
     active: false,
     activeColor: "text-primary-headings-navigation",
@@ -67,6 +68,10 @@ export const Courses = (): JSX.Element => {
     setMenuOpen(false);
     if (label === "Home") {
       navigate("/");
+    } else if (label === "Contact") {
+      navigate("/contact");
+    } else if (label === "About") {
+      navigate("/about");
     } else if (href.startsWith("#")) {
       const el = document.getElementById(href.slice(1));
       if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -189,11 +194,6 @@ export const Courses = (): JSX.Element => {
           <HeroCourseIntroductionSection />
         </div>
 
-        {/* Floating social media buttons */}
-        <div className="hidden lg:flex absolute bottom-0 right-[170px] flex-col items-start gap-8 translate-y-full pt-4">
-          <img className="w-14 h-14" alt="Group" src="https://c.animaapp.com/mnmyaijxgewU4q/img/group-40187.png" />
-          <img className="w-12 h-12" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-1321317933.svg" />
-        </div>
       </div>
 
       {/* Main content sections */}
@@ -207,6 +207,9 @@ export const Courses = (): JSX.Element => {
       <div id="contact">
         <GlobalFooterSection />
       </div>
+
+      {/* Floating Chat Widget */}
+      <FloatingChatButtons />
     </div>
   );
 };
