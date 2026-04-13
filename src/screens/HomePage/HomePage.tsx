@@ -1,5 +1,7 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
+import { ChatWidget, type ChatMessage } from "../../components/ui/chat-widget";
 import { CareerCallToActionSection } from "./sections/CareerCallToActionSection";
 import { FeaturedCoursesSection } from "./sections/FeaturedCoursesSection";
 import { HeroBannerSection } from "./sections/HeroBannerSection";
@@ -45,8 +47,16 @@ const whyChooseUsCards = [
   },
 ];
 
+const chatMessages: ChatMessage[] = [
+  { id: 1, type: "user", text: "Hello, how are you doing?", time: "08:15 AM" },
+  { id: 2, type: "assistant", text: "I\u2019m doing well, thank you! How can I help you today?", time: "08:16 AM" },
+  { id: 3, type: "user", text: "I have a question about the return policy for a product I purchased.", time: "Just Now" },
+  { id: 4, type: "assistant", text: null, time: null },
+];
+
 export const HomePage = (): JSX.Element => {
   const navigate = useNavigate();
+  const [chatOpen, setChatOpen] = React.useState(false);
 
   return (
     <div className="relative w-full bg-white overflow-x-hidden flex flex-col">
@@ -79,12 +89,16 @@ export const HomePage = (): JSX.Element => {
           <Button
             variant="outline"
             className="h-auto bg-white inline-flex items-center justify-center gap-2.5 px-5 py-4 rounded-lg border-0 shadow-none"
+            onClick={() => navigate("/login")}
           >
             <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-accent-buttons-links text-base tracking-[0] leading-6 whitespace-nowrap">
               Login
             </span>
           </Button>
-          <Button className="h-auto inline-flex items-center justify-center gap-2.5 px-5 py-4 bg-accent-buttons-links rounded-lg border border-solid border-[#0072de] shadow-[0px_3px_4px_#00000040]">
+          <Button
+            className="h-auto inline-flex items-center justify-center gap-2.5 px-5 py-4 bg-accent-buttons-links rounded-lg border border-solid border-[#0072de] shadow-[0px_3px_4px_#00000040]"
+            onClick={() => navigate("/register")}
+          >
             <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base tracking-[0] leading-6 whitespace-nowrap">
               Register
             </span>
@@ -274,6 +288,36 @@ export const HomePage = (): JSX.Element => {
       <section className="w-full relative">
         <CareerCallToActionSection />
       </section>
+
+      {/* Floating Chat Widget */}
+      <div className="fixed bottom-8 right-8 flex flex-col items-end gap-4 z-50">
+        {chatOpen && (
+          <ChatWidget
+            title="ICS Chat"
+            subtitle="Get Help 24x7"
+            messages={chatMessages}
+            assistantAvatar="https://c.animaapp.com/mnwu5sfyzRwXn5/img/ellipse-1-1.png"
+            open={chatOpen}
+            onClose={() => setChatOpen(false)}
+            onSend={(text) => console.log("Sent:", text)}
+            className="shadow-[0px_30px_60px_#0072de26] animate-fade-in"
+          />
+        )}
+        <div className="flex flex-col items-center gap-4">
+          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+            <img className="w-14 h-14 drop-shadow-lg" alt="WhatsApp" src="https://c.animaapp.com/mnmyaijxgewU4q/img/group-40187.png" />
+          </a>
+          <button
+            onClick={() => setChatOpen((prev) => !prev)}
+            className="w-14 h-14 rounded-full bg-[#0072de] flex items-center justify-center shadow-lg transition-transform hover:scale-110"
+            aria-label="Toggle chat"
+          >
+            <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

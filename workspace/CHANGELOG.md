@@ -18,6 +18,10 @@ You MUST maintain this file to track your work across messages. This is NON-NEGO
 </instructions>
 
 <changelog>
+## 2026-04-13
+- Added floating WhatsApp & message buttons to HomePage (src/screens/HomePage/HomePage.tsx)
+- Buttons match Courses page style, fixed bottom-right with hover scale effect
+
 ## 2026-04-07
 - Added full SEO setup: index.html meta/OG/Twitter/JSON-LD, favicon.png, site.webmanifest
 - Created public/sitemap.xml, public/robots.txt (Google/Bing/Perplexity), public/llms.txt

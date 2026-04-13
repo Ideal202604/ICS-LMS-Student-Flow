@@ -13,10 +13,14 @@
   --accent-buttons-links: rgba(0, 114, 222, 1);
   --app-background: rgba(247, 250, 252, 1);
   --base-02: rgba(9, 9, 20, 1);
+  --basewhite: rgba(255, 255, 255, 1);
   --blue-600: rgba(37, 99, 235, 1);
+  --blue-gray300: rgba(203, 213, 225, 1);
+  --blue-gray400: rgba(148, 163, 184, 1);
   --blue-gray500: rgba(100, 116, 139, 1);
   --colorblack: rgba(0, 0, 0, 1);
   --colordark-grey: rgba(85, 85, 85, 1);
+  --gray-900: rgba(24, 24, 27, 1);
   --primary-headings-navigation: rgba(26, 54, 93, 1);
   --regular-13px-font-family: "Poppins", Helvetica;
   --regular-13px-font-size: 14px;
