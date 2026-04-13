@@ -1,4 +1,1 @@
-{
-  "nodes": [],
-  "edges": []
-}
+{"nodes":[{"id":"src/screens/HomePage/HomePage.tsx","label":"HomePage","routes":["/"],"type":"screen","isRoot":true},{"id":"src/screens/Courses/Courses.tsx","label":"Courses","routes":["/courses"],"type":"screen","dataModelId":"312:2247"},{"id":"src/screens/LmsStudentFlow/LmsStudentFlow.tsx","label":"LmsStudentFlow","routes":["/lms-student-flow"],"type":"screen"}],"edges":[{"id":"src/screens/HomePage/HomePage.tsx:140:27-to-src/screens/Courses/Courses.tsx","source":"src/screens/HomePage/HomePage.tsx","target":"src/screens/Courses/Courses.tsx","data":{"viaRoute":"/courses","trigger":{"element":"navigate(\"/courses\")","line":140,"endLine":140,"column":27,"endColumn":47,"sourceFile":"src/screens/HomePage/HomePage.tsx"}}},{"id":"src/screens/Courses/Courses.tsx:69:6-to-src/screens/HomePage/HomePage.tsx","source":"src/screens/Courses/Courses.tsx","target":"src/screens/HomePage/HomePage.tsx","data":{"viaRoute":"/","trigger":{"element":"navigate(\"/\")","line":69,"endLine":69,"column":6,"endColumn":19,"sourceFile":"src/screens/Courses/Courses.tsx"}}}]}

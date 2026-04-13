@@ -46,164 +46,164 @@ export const GlobalFooterSection = (): JSX.Element => {
   };
 
   return (
-    <footer className="relative w-full flex flex-col bg-white">
+    <footer className="relative w-full flex flex-col">
       {/* CTA Banner Section */}
-      <section
-        className="w-full flex flex-col items-center justify-center py-20 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12"
+      <div
+        className="w-full flex flex-col items-center justify-center py-16 md:py-28 px-4"
         style={{
-          background: "linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 100%), url(https://c.animaapp.com/mnmyaijxgewU4q/img/frame-1321318002.png) center/cover",
-          minHeight: "420px",
+          background: "linear-gradient(0deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%),url(https://c.animaapp.com/mnmyaijxgewU4q/img/frame-1321318002.png) 50% 50% / cover",
+          minHeight: "392px",
         }}
       >
-        <div className="flex flex-col items-center gap-8 md:gap-10 max-w-[900px] w-full">
-          {/* Heading and description */}
-          <div className="flex flex-col items-center gap-6 md:gap-8 w-full">
-            <h2 className="[font-family:'Open_Sans',Helvetica] font-bold text-white text-3xl sm:text-4xl md:text-5xl text-center tracking-tight leading-tight md:leading-[1.2]">
-              Ready to Transform Your Career?
+        <div className="flex flex-col items-center gap-6 max-w-[883px] w-full">
+          <div className="flex flex-col items-center gap-4 w-full">
+            <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-2xl md:text-[44px] text-center tracking-[-0.88px] leading-tight md:leading-[52px] w-full">
+              Start Your Career Journey Today
             </h2>
-            <p className="[font-family:'Open_Sans',Helvetica] font-normal text-white text-base md:text-lg text-center tracking-[-0.14px] leading-7 md:leading-8 max-w-[700px]">
-              Join thousands of students already learning from industry experts. Start your journey today with our comprehensive courses.
+            <p className="[font-family:'Open_Sans',Helvetica] font-normal text-white text-base md:text-lg text-center tracking-[0] leading-7 w-full">
+              Don&apos;t wait. Upgrade your skills and secure your future now.
             </p>
           </div>
 
-          {/* CTA Buttons */}
           <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
             <Button
               onClick={handleEnroll}
-              className="h-12 md:h-13 inline-flex items-center justify-center gap-3 px-7 md:px-8 py-3 bg-[#0072de] rounded-lg border border-[#0072de] shadow-[0px_4px_16px_rgba(0,72,222,0.3)] hover:bg-[#005bbf] transition-all active:scale-95 [font-family:'Open_Sans',Helvetica]"
+              className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-[#117ade] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#0f6bc7] transition-colors"
             >
-              <span className="font-semibold text-white text-base md:text-lg tracking-[-0.14px] leading-6 whitespace-nowrap">
+              <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-lg tracking-[0] leading-6 whitespace-nowrap">
                 {enrollClicked ? "Enrolled! 🎉" : "Enroll Now"}
               </span>
               {!enrollClicked && (
-                <img className="w-6 h-6" alt="Arrow" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
+                <img className="w-6 h-6" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
               )}
             </Button>
 
             <Button
               variant="outline"
               onClick={handleContact}
-              className="h-12 md:h-13 inline-flex items-center justify-center gap-3 px-7 md:px-8 py-3 bg-white rounded-lg border border-white shadow-[0px_4px_16px_rgba(255,255,255,0.2)] hover:bg-gray-50 transition-all active:scale-95 [font-family:'Open_Sans',Helvetica]"
+              className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-gray-50 transition-colors"
             >
-              <span className="font-semibold text-[#0072de] text-base md:text-lg tracking-[-0.14px] leading-6 whitespace-nowrap">
-                {contactClicked ? "Contacting..." : "Contact Us"}
+              <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-lg tracking-[0] leading-6 whitespace-nowrap">
+                {contactClicked ? "Scrolling..." : "Contact Us"}
               </span>
               {!contactClicked && (
-                <img className="w-6 h-6" alt="Arrow" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
+                <img className="w-6 h-6" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
               )}
             </Button>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Footer Links Section */}
-      <section className="w-full bg-white px-4 sm:px-6 md:px-[60px] lg:px-[108px] py-16 md:py-24">
-        <div className="w-full max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 mb-12">
-            {/* Logo + Description */}
-            <div className="col-span-2 md:col-span-3 lg:col-span-1 flex flex-col items-start gap-6">
-              <img
-                className="w-20 h-[93px] md:w-24 md:h-[111px]"
-                alt="ICS Logo"
-                src="https://c.animaapp.com/mnmyaijxgewU4q/img/ics-png-3.png"
-              />
-              <p className="max-w-[280px] text-[#55596a] text-sm md:text-base leading-6 md:leading-7 [font-family:'Open_Sans',Helvetica] font-normal tracking-[-0.14px]">
-                Empower your learning journey with expert-led courses and industry-ready skills.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div className="flex flex-col items-start gap-6">
-              <h3 className="[font-family:'Open_Sans',Helvetica] font-bold text-[#1a365d] text-lg tracking-tight leading-7 w-full">
-                Quick Links
-              </h3>
-              <nav className="flex flex-col items-start gap-4 w-full">
-                {quickLinks.map((link) => (
-                  <a
-                    key={link}
-                    href="#"
-                    onClick={handleNavLink}
-                    className="[font-family:'Open_Sans',Helvetica] font-normal text-[#55596a] text-base tracking-[-0.14px] leading-6 whitespace-nowrap hover:text-[#0072de] transition-colors duration-200"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Company */}
-            <div className="flex flex-col items-start gap-6">
-              <h3 className="[font-family:'Open_Sans',Helvetica] font-bold text-[#1a365d] text-lg tracking-tight leading-7 whitespace-nowrap">
-                Company
-              </h3>
-              <nav className="flex flex-col items-start gap-4 w-full">
-                {companyLinks.map((link) => (
-                  <a
-                    key={link}
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                    className="[font-family:'Open_Sans',Helvetica] font-normal text-[#55596a] text-base tracking-[-0.14px] leading-6 whitespace-nowrap hover:text-[#0072de] transition-colors duration-200"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Contact Information */}
-            <div className="flex flex-col items-start gap-6">
-              <h3 className="[font-family:'Open_Sans',Helvetica] font-bold text-[#1a365d] text-lg tracking-tight leading-7 whitespace-nowrap">
-                Contact
-              </h3>
-              <address className="flex flex-col items-start gap-4 not-italic">
-                {contactInfo.map((info) => (
-                  <span
-                    key={info}
-                    className="[font-family:'Open_Sans',Helvetica] font-normal text-[#55596a] text-base tracking-[-0.14px] leading-6"
-                  >
-                    {info}
-                  </span>
-                ))}
-              </address>
-            </div>
-
-            {/* Follow Us */}
-            <div className="flex flex-col items-start gap-6">
-              <h3 className="[font-family:'Open_Sans',Helvetica] font-bold text-[#1a365d] text-lg tracking-tight leading-7 w-full">
-                Follow Us
-              </h3>
-              <div className="flex items-center gap-6">
-                {socialIcons.map((icon) => (
-                  <a
-                    key={icon.alt}
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                    aria-label={icon.alt}
-                    className="transition-transform hover:scale-110 active:scale-95"
-                  >
-                    <img className={`${icon.className} hover:opacity-75 transition-opacity`} alt={icon.alt} src={icon.src} />
-                  </a>
-                ))}
-              </div>
-            </div>
+      <div className="w-full bg-white px-6 md:px-[108px] py-12 md:py-24 flex flex-col items-center">
+        <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
+          {/* Logo + Description */}
+          <div className="col-span-2 md:col-span-3 lg:col-span-1 flex flex-col items-start gap-6">
+            <img
+              className="w-[100px] h-[93px] md:w-[145px] md:h-[135px]"
+              alt="Ics png"
+              src="https://c.animaapp.com/mnmyaijxgewU4q/img/ics-png-3.png"
+            />
+            <p className="max-w-[265px] text-black text-base leading-6 [font-family:'Open_Sans',Helvetica] font-normal tracking-[0]">
+              Lorem ipsum dolor sit amet cons ectetur. Nunc ultrices dui sed et vulputate facilisi blandit dapibus.
+            </p>
           </div>
 
-          {/* Copyright Bar */}
-          <Separator className="bg-[#e5e7eb] my-8 md:my-12" />
-          <div className="py-6 flex items-center justify-between relative px-0">
-            <p className="[font-family:'Open_Sans',Helvetica] font-normal text-[#9ca3af] text-sm md:text-base tracking-[-0.14px] leading-6 text-center flex-1">
-              © 2024-2026 ICS Learning System. All Rights Reserved.
-            </p>
-            <button
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center transition-all hover:scale-110 active:scale-95 rounded-full hover:bg-[#e9f6ff]"
-              aria-label="Scroll to top"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              <img className="w-14 h-14" alt="Scroll to top" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-73.svg" />
-            </button>
+          {/* Quick Links */}
+          <div className="flex flex-col items-start gap-6">
+            <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px] w-full">
+              Quick Links
+            </h3>
+            <nav className="flex flex-col items-start gap-4 w-full">
+              {quickLinks.map((link) => (
+                <a
+                  key={link}
+                  href="#"
+                  onClick={handleNavLink}
+                  className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:text-[#0072de] hover:underline transition-colors"
+                >
+                  {link}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Company */}
+          <div className="flex flex-col items-start gap-6">
+            <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px] whitespace-nowrap">
+              Company
+            </h3>
+            <nav className="flex flex-col items-start gap-4">
+              {companyLinks.map((link) => (
+                <a
+                  key={link}
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                  className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:text-[#0072de] hover:underline transition-colors"
+                >
+                  {link}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Information */}
+          <div className="flex flex-col items-start gap-6">
+            <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px] whitespace-nowrap">
+              Contact Information
+            </h3>
+            <address className="flex flex-col items-start gap-4 not-italic">
+              {contactInfo.map((info) => (
+                <span
+                  key={info}
+                  className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6"
+                >
+                  {info}
+                </span>
+              ))}
+            </address>
+          </div>
+
+          {/* Follow Us */}
+          <div className="flex flex-col items-start gap-6">
+            <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-lg tracking-[0] leading-[26px] w-full">
+              Follow Us
+            </h3>
+            <div className="flex items-center gap-4 md:gap-6">
+              {socialIcons.map((icon) => (
+                <a
+                  key={icon.alt}
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                  aria-label={icon.alt}
+                  className="transition-opacity hover:opacity-75"
+                >
+                  <img className={icon.className} alt={icon.alt} src={icon.src} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Copyright Bar */}
+      <div className="w-full bg-white">
+        <div className="max-w-[1392px] mx-auto px-6 md:px-[108px]">
+          <Separator className="bg-[#cdcdcd]" />
+        </div>
+        <div className="py-6 flex items-center justify-center relative px-4">
+          <p className="font-regular-13px font-[number:var(--regular-13px-font-weight)] text-base-02 text-[length:var(--regular-13px-font-size)] text-center tracking-[var(--regular-13px-letter-spacing)] leading-[var(--regular-13px-line-height)] [font-style:var(--regular-13px-font-style)]">
+            © Copyright 2026, All Rights Reserved by Idealizeer
+          </p>
+          <button
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-[60px] h-[60px] flex items-center justify-center transition-transform hover:scale-110 active:scale-95"
+            aria-label="Scroll to top"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <img className="w-[60px] h-[60px]" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-73.svg" />
+          </button>
+        </div>
+      </div>
     </footer>
   );
 };

@@ -1,37 +1,41 @@
 export const HeroCourseIntroductionSection = (): JSX.Element => {
   return (
-    <div className="flex flex-col w-full max-w-[883px] items-start gap-8 md:gap-10 lg:gap-12">
-      <div className="flex flex-col items-start gap-8 md:gap-10 relative self-stretch w-full">
-        <div className="flex flex-col items-start gap-6 md:gap-8 relative self-stretch w-full">
+    <div className="flex flex-col w-full max-w-[883px] items-start gap-4 md:gap-6">
+      <div className="flex flex-col items-start gap-5 md:gap-8 relative self-stretch w-full">
+        <div className="flex flex-col items-start gap-4 md:gap-6 relative self-stretch w-full">
           {/* Badge */}
-          <div className="bg-white bg-opacity-[12%] border-[0.5px] border-solid border-white border-opacity-40 inline-flex h-11 md:h-12 items-center justify-center gap-2.5 px-5 md:px-6 py-3 md:py-3.5 rounded-xl">
-            <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-sm md:text-base tracking-[-0.28px] leading-6 whitespace-nowrap">
+          <div className="bg-[#c8c8c81a] border-[0.5px] border-solid border-white inline-flex h-10 md:h-12 items-center justify-center gap-2.5 px-4 md:px-5 py-3 md:py-4 rounded-lg">
+            <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#f7fafc] text-sm md:text-base tracking-[0] leading-7 whitespace-nowrap">
               Comprehensive Learning
             </span>
           </div>
 
           {/* Heading + Description */}
-          <div className="flex flex-col items-start gap-5 md:gap-7 relative self-stretch w-full">
-            <h1 className="w-full [text-shadow:0px_4px_8px_rgba(0,0,0,0.3)] [font-family:'Open_Sans',Helvetica] font-bold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight lg:leading-[1.1]">
-              Expert-Led Online Courses for Career Growth
+          <div className="flex flex-col items-start gap-3 md:gap-4 relative self-stretch w-full">
+            <h1 className="w-full [text-shadow:0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl tracking-[0] leading-tight lg:leading-[84px]">
+              Lorem ipsum dolor sit amet consectetur In.
             </h1>
 
-            <p className="self-stretch text-white text-base sm:text-lg md:text-lg leading-7 md:leading-8 [font-family:'Open_Sans',Helvetica] font-normal tracking-[-0.14px]">
-              Master in-demand skills with 120+ comprehensive courses designed by industry experts. Learn at your own pace and advance your career with personalized learning paths.
+            <p className="self-stretch text-white text-sm sm:text-base md:text-lg leading-6 md:leading-7 [font-family:'Open_Sans',Helvetica] font-normal tracking-[0] line-clamp-4 md:line-clamp-none">
+              Lorem ipsum dolor sit amet consectetur. Commodo cursus quis at
+              felis feugiat donec amet eget. Ac porttitor orci pellentesque diam
+              tortor eu consectetur accumsan eget. Suspendisse eget cum ut cras
+              vel luctus nibh. Sed sed vulputate nec justo blandit purus. Orci
+              est dictumst.
             </p>
           </div>
         </div>
       </div>
 
       {/* Students row */}
-      <div className="inline-flex items-center gap-4 md:gap-5">
+      <div className="inline-flex items-center gap-[13px]">
         <img
-          className="w-32 h-8 md:w-40 md:h-10"
-          alt="Student avatars"
+          className="w-24 h-6 md:w-32 md:h-8"
+          alt="Group"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/group-33554.png"
         />
-        <p className="max-w-[200px] md:max-w-[250px] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-sm md:text-base tracking-[-0.14px] leading-6 md:leading-6">
-          120+ students already joined
+        <p className="w-[140px] md:w-[169px] [font-family:'Montserrat',Helvetica] font-semibold text-app-background text-sm md:text-lg tracking-[0] leading-6 md:leading-7">
+          120+ Students are join our courses
         </p>
       </div>
     </div>

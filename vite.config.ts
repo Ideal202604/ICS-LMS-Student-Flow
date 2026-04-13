@@ -8,11 +8,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), mode === "development" && screenGraphPlugin()],
   publicDir: "./static",
   base: "./",
-  server: {
-    proxy: {
-      "/api": "http://localhost:3000",
-    },
-  },
   css: {
     postcss: {
       plugins: [tailwind()],
