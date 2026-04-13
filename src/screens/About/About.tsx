@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
 import { FloatingChatButtons } from "../../components/ui/floating-chat-buttons";
@@ -41,11 +42,27 @@ const navItems = [
 
 export const About = (): JSX.Element => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMenuOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   return (
     <div className="relative flex flex-col w-full bg-white">
       {/* Navigation Bar */}
-      <nav className="w-full h-[81px] bg-white flex items-center justify-between px-4 md:px-6 z-10 shadow-sm">
+      <header className="w-full h-[81px] bg-white flex items-center justify-between px-4 md:px-6 z-50 shadow-sm relative">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <img
@@ -55,19 +72,19 @@ export const About = (): JSX.Element => {
             onClick={() => navigate("/")}
           />
         </div>
-        {/* Nav Links - centered */}
-        <div className="hidden md:flex items-center h-[50px]">
+        {/* Nav Links - visible on md+ with labels always shown */}
+        <nav className="hidden md:flex items-center h-[50px]">
           {navItems.map((item) => (
             <button
               key={item.label}
               onClick={() => navigate(item.href)}
-              className={`inline-flex h-12 items-center justify-center gap-2.5 px-3 lg:px-5 py-4 rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${
+              className={`inline-flex h-12 items-center justify-center gap-2.5 px-5 py-4 rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${
                 item.active ? "bg-[#e9f6ff]" : ""
               }`}
             >
               <img className="w-6 h-6" alt="Frame" src={item.icon} />
               <span
-                className={`hidden lg:inline [font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${
+                className={`[font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${
                   item.active ? "text-[#0072de]" : "text-[#1a365d]"
                 }`}
               >
@@ -75,7 +92,7 @@ export const About = (): JSX.Element => {
               </span>
             </button>
           ))}
-        </div>
+        </nav>
         {/* Auth Buttons */}
         <div className="hidden md:flex items-center gap-4 h-[50px]">
           <Button
@@ -95,16 +112,60 @@ export const About = (): JSX.Element => {
         {/* Mobile Hamburger */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-[5px] flex-shrink-0"
-          aria-label="Open menu"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
         >
-          <span className="block w-6 h-0.5 bg-[#1a365d]" />
-          <span className="block w-6 h-0.5 bg-[#1a365d]" />
-          <span className="block w-6 h-0.5 bg-[#1a365d]" />
+          <span className={`block w-6 h-0.5 bg-[#1a365d] transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#1a365d] transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#1a365d] transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
         </button>
-      </nav>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        style={{ background: "rgba(0,0,0,0.3)" }}
+        onClick={() => setMenuOpen(false)}
+      />
+
+      {/* Mobile Slide-Down Menu */}
+      <div
+        className={`fixed top-[81px] left-0 right-0 z-40 md:hidden bg-white transition-all duration-300 shadow-lg ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"}`}
+      >
+        <nav className="flex flex-col px-4 pt-2 pb-4 gap-1">
+          {navItems.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => { navigate(item.href); setMenuOpen(false); }}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg w-full text-left transition-colors ${item.active ? "bg-[#e9f6ff]" : "hover:bg-gray-50"}`}
+            >
+              <img className="w-6 h-6 flex-shrink-0" alt="Frame" src={item.icon} />
+              <span className={`[font-family:'Open_Sans',Helvetica] font-semibold text-base ${item.active ? "text-[#0072de]" : "text-[#1a365d]"}`}>
+                {item.label}
+              </span>
+            </button>
+          ))}
+          <div className="flex items-center gap-3 pt-3 border-t border-gray-100 mt-2">
+            <Button
+              variant="outline"
+              className="flex-1 h-11 bg-white rounded-lg border border-solid border-[#0072de] [font-family:'Open_Sans',Helvetica] font-semibold text-accent-buttons-links text-base"
+              onClick={() => { navigate("/login"); setMenuOpen(false); }}
+            >
+              Login
+            </Button>
+            <Button
+              className="flex-1 h-11 bg-accent-buttons-links rounded-lg border border-solid border-[#0072de] shadow-[0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base"
+              onClick={() => { navigate("/register"); setMenuOpen(false); }}
+            >
+              Register
+            </Button>
+          </div>
+        </nav>
+      </div>
 
       {/* Hero Banner Section */}
-      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center">
+      <section className="relative w-full min-h-[220px] sm:min-h-[320px] md:min-h-[500px] lg:min-h-[600px] flex items-center overflow-hidden">
         {/* Base background image — same as Courses page */}
         <img
           className="absolute inset-0 w-full h-full object-cover"
@@ -117,44 +178,48 @@ export const About = (): JSX.Element => {
           alt="Overlay"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg"
         />
-        <div className="relative z-10 w-full px-4 md:px-8 lg:px-16 xl:px-[264px] py-8 md:py-16">
+        <div className="relative z-10 w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 sm:py-8 md:py-16">
           <HeroBannerSection />
         </div>
       </section>
 
       {/* About Overview Section */}
-      <div className="w-full bg-white px-4 md:px-8 lg:px-16 xl:px-[264px]">
+      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] animate-slide-in-up">
         <AboutOverviewSection />
       </div>
 
       {/* About Story + Mission Vision Sections side by side */}
-      <div className="w-full flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-8 lg:px-16 xl:px-[264px] py-8 md:py-16">
-        <div className="flex-1">
+      <div className="w-full flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-16 px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] py-6 sm:py-8 md:py-16">
+        <div className="flex-1 animate-slide-in-left">
           <AboutStorySection />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 animate-slide-in-right animation-delay-200">
           <MissionVisionSection />
         </div>
       </div>
 
       {/* Approach area with light background */}
-      <div className="w-full bg-[#f0f8ff] px-4 md:px-8 lg:px-16 xl:px-[264px] py-12 md:py-16">
-        <ApproachHeadingSection />
-        <div className="mt-10">
+      <div className="w-full bg-[#f0f8ff] px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] py-8 sm:py-12 md:py-16">
+        <div className="animate-slide-in-up">
+          <ApproachHeadingSection />
+        </div>
+        <div className="mt-10 animate-scale-in animation-delay-300">
           <ApproachHighlightsSection />
         </div>
       </div>
 
       {/* Testimonial Section */}
-      <div className="w-full bg-white px-4 md:px-8 lg:px-16 xl:px-[264px] py-12 md:py-16">
-        <TestimonialHeadingSection />
-        <div className="mt-10">
+      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] py-8 sm:py-12 md:py-16">
+        <div className="animate-slide-in-up">
+          <TestimonialHeadingSection />
+        </div>
+        <div className="mt-10 animate-slide-in-up animation-delay-200">
           <TestimonialCarouselSection />
         </div>
       </div>
 
       {/* Career Call To Action Section */}
-      <div className="w-full">
+      <div className="w-full animate-slide-in-up">
         <CareerCallToActionSection />
       </div>
 

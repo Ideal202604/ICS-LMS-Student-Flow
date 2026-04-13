@@ -8,7 +8,7 @@ const coursesData = [
   {
     id: 4,
     slug: "digital-marketing-using-ai-3",
-    image: "https://c.animaapp.com/mnmyaijxgewU4q/img/rectangle-9796-5.png",
+    image: "https://c.animaapp.com/mnx2ynhlJmDJf4/img/rectangle-9796-2.png",
     rating: "4.5",
     title: "Digital Marketing Using AI",
     description: "Enhance research writing skills us...",
@@ -22,7 +22,7 @@ const coursesData = [
   {
     id: 5,
     slug: "research-writing-ai-2",
-    image: "https://c.animaapp.com/mnmyaijxgewU4q/img/rectangle-9796-4.png",
+    image: "https://c.animaapp.com/mnx2ynhlJmDJf4/img/rectangle-9796-1.png",
     rating: "4.5",
     title: "Research Writing & AI",
     description: "Enhance research writing skills us...",
@@ -36,7 +36,7 @@ const coursesData = [
   {
     id: 6,
     slug: "digital-marketing-using-ai-4",
-    image: "https://c.animaapp.com/mnmyaijxgewU4q/img/rectangle-9796-5.png",
+    image: "https://c.animaapp.com/mnx2ynhlJmDJf4/img/rectangle-9796-2.png",
     rating: "4.5",
     title: "Digital Marketing Using AI",
     description: "Enhance research writing skills us...",
@@ -49,11 +49,11 @@ const coursesData = [
   },
 ];
 
-const metaBadgeIcons = [
-  { src: "https://c.animaapp.com/mnmyaijxgewU4q/img/frame-10.svg", key: "lessons" },
-  { src: "https://c.animaapp.com/mnmyaijxgewU4q/img/frame-5.svg", key: "mode" },
-  { src: "https://c.animaapp.com/mnmyaijxgewU4q/img/frame-7.svg", key: "duration" },
-];
+const metaIcons = {
+  lessons: "https://c.animaapp.com/mnx2ynhlJmDJf4/img/frame-3.svg",
+  mode: "https://c.animaapp.com/mnx2ynhlJmDJf4/img/frame.svg",
+  duration: "https://c.animaapp.com/mnx2ynhlJmDJf4/img/frame-1.svg",
+};
 
 type FeedbackMap = { [id: number]: "enrolled" | "details" | null };
 
@@ -76,23 +76,27 @@ export const CareerCTASection = (): JSX.Element => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full px-4 md:px-8 lg:px-16 pb-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 w-full px-4 md:px-8 lg:px-16 pb-12 sm:pb-16">
       {coursesData.map((course) => (
         <Card
           key={course.id}
-          className="flex w-full items-start gap-2.5 p-6 md:p-8 bg-white rounded-2xl border border-solid border-[#d9edff] shadow-[0px_4px_4px_#9cd2ff40] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0px_8px_16px_#9cd2ff60]"
+          className="flex w-full items-start gap-2.5 p-5 sm:p-8 bg-white rounded-2xl border border-solid border-[#d9edff] shadow-[0px_4px_4px_#9cd2ff40] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0px_8px_16px_#9cd2ff60]"
         >
-          <CardContent className="flex flex-col w-full items-center gap-6 p-0">
+          <CardContent className="flex flex-col w-full items-center gap-5 sm:gap-6 p-0">
             {/* Course thumbnail with rating badge */}
-            <div className="relative w-full h-[205px]">
+            <div className="relative w-full h-[180px] sm:h-[205px]">
               <img
-                className="w-full h-[205px] rounded-2xl object-cover"
+                className="w-full h-[180px] sm:h-[205px] rounded-2xl object-cover"
                 alt={course.title}
                 src={course.image}
               />
-              <div className="flex w-[70px] h-8 items-center gap-2 px-[5px] py-0 absolute bottom-[5px] right-[5px] bg-white rounded-lg">
-                <img className="w-4 h-4" alt="Rating star" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-1.svg" />
-                <span className="font-semibold text-[#1a365d] text-lg leading-7 [font-family:'Open_Sans',Helvetica] tracking-[0] whitespace-nowrap">
+              <div className="flex w-[70px] h-8 items-center gap-2 px-[5px] py-0 absolute bottom-[11px] right-[11px] bg-white rounded-lg">
+                <img
+                  className="w-4 h-4"
+                  alt="Star"
+                  src="https://c.animaapp.com/mnx2ynhlJmDJf4/img/frame-12.svg"
+                />
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#1a365d] text-lg tracking-[0] leading-7 whitespace-nowrap">
                   {course.rating}
                 </span>
               </div>
@@ -101,32 +105,32 @@ export const CareerCTASection = (): JSX.Element => {
             {/* Course title and description */}
             <div className="flex flex-col items-start gap-2 self-stretch w-full">
               <div className="flex flex-col items-start gap-4 self-stretch w-full">
-                <h3 className="self-stretch [font-family:'Open_Sans',Helvetica] font-semibold text-black text-2xl tracking-[0] leading-8">
+                <h3 className="self-stretch [font-family:'Open_Sans',Helvetica] font-semibold text-black text-xl sm:text-2xl tracking-[0] leading-7 sm:leading-8">
                   {course.title}
                 </h3>
               </div>
-              <p className="self-stretch [font-family:'Open_Sans',Helvetica] font-normal text-black text-lg tracking-[0] leading-7">
+              <p className="self-stretch [font-family:'Open_Sans',Helvetica] font-normal text-black text-base sm:text-lg tracking-[0] leading-6 sm:leading-7">
                 {course.description}
               </p>
             </div>
 
             {/* Meta badges */}
-            <div className="gap-4 md:gap-10 inline-flex items-center flex-wrap justify-center">
+            <div className="inline-flex items-center gap-3 sm:gap-10 flex-wrap justify-center">
               <div className="inline-flex items-center justify-center gap-2 px-2.5 py-2 bg-[#e7effa] rounded-lg">
-                <img className="w-[18px] h-[18px]" alt="Lessons" src={metaBadgeIcons[0].src} />
-                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#1a365d] text-sm tracking-[-0.28px] leading-4 whitespace-nowrap">
+                <img className="w-[18px] h-[18px]" alt="Lessons" src={metaIcons.lessons} />
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#1a365d] text-xs sm:text-sm tracking-[-0.28px] leading-4 whitespace-nowrap">
                   {course.lessons}
                 </span>
               </div>
               <div className="inline-flex items-center justify-center gap-2 px-2.5 py-2 bg-[#e7effa] rounded-lg">
-                <img className="w-[18px] h-[18px]" alt="Mode" src={metaBadgeIcons[1].src} />
-                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#1a365d] text-sm tracking-[-0.28px] leading-4 whitespace-nowrap">
+                <img className="w-[18px] h-[18px]" alt="Mode" src={metaIcons.mode} />
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#1a365d] text-xs sm:text-sm tracking-[-0.28px] leading-4 whitespace-nowrap">
                   {course.mode}
                 </span>
               </div>
               <div className="inline-flex items-center justify-center gap-2 px-2.5 py-2 bg-[#e7effa] rounded-lg">
-                <img className="w-[18px] h-[18px]" alt="Duration" src={metaBadgeIcons[2].src} />
-                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#1a365d] text-sm tracking-[-0.28px] leading-4 whitespace-nowrap">
+                <img className="w-[18px] h-[18px]" alt="Duration" src={metaIcons.duration} />
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#1a365d] text-xs sm:text-sm tracking-[-0.28px] leading-4 whitespace-nowrap">
                   {course.duration}
                 </span>
               </div>
@@ -135,16 +139,20 @@ export const CareerCTASection = (): JSX.Element => {
             {/* Pricing */}
             <div className="flex w-full items-center justify-between">
               <div className="inline-flex items-center gap-2.5">
-                <span className="font-normal text-[#55596a] text-xl text-center leading-8 line-through [font-family:'Open_Sans',Helvetica] tracking-[0] whitespace-nowrap">
+                <span className="[font-family:'Open_Sans',Helvetica] font-normal text-[#55596a] text-lg sm:text-xl text-center leading-8 line-through tracking-[0] whitespace-nowrap">
                   {course.originalPrice}
                 </span>
-                <span className="font-semibold text-black text-[26px] leading-[44px] [font-family:'Open_Sans',Helvetica] tracking-[0] whitespace-nowrap">
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-[22px] sm:text-[26px] leading-[36px] sm:leading-[44px] tracking-[0] whitespace-nowrap">
                   {course.discountedPrice}
                 </span>
               </div>
-              <div className="inline-flex items-center justify-center gap-2.5 px-2.5 py-2 bg-[#fee9cd] rounded-[20px]">
-                <img className="w-6 h-6" alt="Discount" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-6.svg" />
-                <span className="[font-family:'Open_Sans',Helvetica] font-bold text-[#f97b08] text-base text-center tracking-[-0.32px] leading-4 whitespace-nowrap">
+              <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2.5 px-2 sm:px-2.5 py-1.5 sm:py-2 bg-[#fee9cd] rounded-[20px]">
+                <img
+                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  alt="Discount"
+                  src="https://c.animaapp.com/mnx2ynhlJmDJf4/img/frame-2.svg"
+                />
+                <span className="[font-family:'Open_Sans',Helvetica] font-bold text-[#f97b08] text-sm sm:text-base text-center tracking-[-0.32px] leading-4 whitespace-nowrap">
                   {course.discount}
                 </span>
               </div>
@@ -158,23 +166,31 @@ export const CareerCTASection = (): JSX.Element => {
             )}
 
             {/* Action buttons */}
-            <div className="gap-3 inline-flex items-center w-full justify-center flex-wrap">
+            <div className="inline-flex items-center gap-3 sm:gap-4 w-full justify-center flex-wrap">
               <Button
                 variant="outline"
                 onClick={() => handleDetails(course.slug)}
-                className="h-auto justify-center gap-2.5 px-6 md:px-8 py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] inline-flex items-center transition-colors hover:bg-[#e9f6ff]"
+                className="h-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-8 py-2.5 sm:py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] transition-colors hover:bg-[#e9f6ff]"
               >
-                <img className="w-6 h-6" alt="Details icon" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-8.svg" />
-                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-lg tracking-[0] leading-6 whitespace-nowrap">
+                <img
+                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  alt="Details"
+                  src="https://c.animaapp.com/mnx2ynhlJmDJf4/img/frame-7.svg"
+                />
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-base sm:text-lg tracking-[0] leading-5 sm:leading-6 whitespace-nowrap">
                   Details
                 </span>
               </Button>
               <Button
                 onClick={() => handleEnroll(course)}
-                className="h-auto inline-flex items-center justify-center gap-2.5 px-6 md:px-8 py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] transition-colors hover:bg-[#005bbf]"
+                className="h-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-8 py-2.5 sm:py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] transition-colors hover:bg-[#005bb5]"
               >
-                <img className="w-6 h-6" alt="Start learning icon" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame.svg" />
-                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-lg tracking-[0] leading-6 whitespace-nowrap">
+                <img
+                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  alt="Start Learning"
+                  src="https://c.animaapp.com/mnx2ynhlJmDJf4/img/frame-9.svg"
+                />
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base sm:text-lg tracking-[0] leading-5 sm:leading-6 whitespace-nowrap">
                   Start Learning
                 </span>
               </Button>

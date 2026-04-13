@@ -28,9 +28,9 @@ const testimonials = [
 
 export const StudentTestimonialsSection = (): JSX.Element => {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-[35px] relative w-full">
+    <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-[35px] relative w-full">
       {testimonials.map((testimonial, index) => (
-        <div key={index} className="relative w-full max-w-[625px] min-h-[239px] flex flex-col sm:flex-row sm:block">
+        <div key={index} className={`card-animate relative w-full max-w-[625px] min-h-[200px] sm:min-h-[239px] flex flex-col sm:flex-row sm:block animate-slide-in-up ${index === 1 ? 'animation-delay-200' : ''}`}>
           {/* Text content positioned to the right of the image */}
           <div className="sm:absolute sm:top-[15px] sm:left-[279px] w-full sm:w-[348px] sm:h-[209px] flex flex-col px-4 sm:px-0 mt-4 sm:mt-0">
             {/* Star rating image */}
@@ -40,7 +40,7 @@ export const StudentTestimonialsSection = (): JSX.Element => {
               src={testimonial.reviewImg}
             />
             {/* Quote text */}
-            <p className="w-[346px] h-28 mt-[30.9px] [font-family:'Open_Sans',Helvetica] font-normal text-base-02 text-lg tracking-[0] leading-7">
+            <p className="w-full sm:w-[346px] h-auto sm:h-28 mt-4 sm:mt-[30.9px] [font-family:'Open_Sans',Helvetica] font-normal text-base-02 text-base sm:text-lg tracking-[0] leading-6 sm:leading-7">
               {testimonial.quote}
             </p>
             {/* Author info */}

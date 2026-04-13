@@ -140,6 +140,110 @@
   }
 }
 
+/* ─── Scroll-triggered animations ─── */
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,114,222,0.3); }
+  50% { box-shadow: 0 0 20px 6px rgba(0,114,222,0.15); }
+}
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes btn-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.7s ease-out both;
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.7s ease-out both;
+}
+.animate-slide-in-up {
+  animation: slide-in-up 0.7s ease-out both;
+}
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out both;
+}
+.animate-float-gentle {
+  animation: float-gentle 3s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out both;
+}
+.animate-fade-in-down {
+  animation: fade-in-down 0.5s ease-out both;
+}
+
+/* Button hover shimmer effect */
+.btn-animate {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-animate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 114, 222, 0.3);
+}
+.btn-animate:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 114, 222, 0.2);
+}
+
+/* Card hover lift */
+.card-animate {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-animate:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Section fade-in on scroll (via IntersectionObserver or static) */
+.section-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slide-in-up 0.8s ease-out forwards;
+}
+
+/* Delay utilities */
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-700 { animation-delay: 0.7s; }
+.animation-delay-800 { animation-delay: 0.8s; }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

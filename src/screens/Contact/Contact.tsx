@@ -80,11 +80,11 @@ export const Contact = (): JSX.Element => {
             <button
               key={item.label}
               onClick={() => navigate(item.href)}
-              className={`inline-flex h-12 items-center justify-center gap-2.5 px-3 lg:px-5 py-4 rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? item.bg : ""}`}
+              className={`inline-flex h-12 items-center justify-center gap-2.5 px-5 py-4 rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? item.bg : ""}`}
             >
               <img className="w-6 h-6" alt="Frame" src={item.icon} />
               <span
-                className={`hidden lg:inline [font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.textColor}`}
+                className={`[font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.textColor}`}
               >
                 {item.label}
               </span>
@@ -165,14 +165,14 @@ export const Contact = (): JSX.Element => {
       </div>
 
       {/* Hero Banner with background images */}
-      <section className="relative w-full">
+      <section className="relative w-full overflow-hidden">
         <img
-          className="w-full h-[300px] sm:h-[380px] md:h-[444px] object-cover"
+          className="w-full h-[200px] sm:h-[300px] md:h-[444px] object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnwxk5sdBr2leB/img/screan-01.png"
         />
         <img
-          className="absolute top-0 left-0 w-full h-[300px] sm:h-[380px] md:h-[444px] object-cover"
+          className="absolute top-0 left-0 w-full h-[200px] sm:h-[300px] md:h-[444px] object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnwxk5sdBr2leB/img/screan-2.svg"
         />
@@ -188,7 +188,7 @@ export const Contact = (): JSX.Element => {
       </section>
 
       {/* Contact Form and Details side by side */}
-      <section className="w-full px-4 md:px-8 lg:px-16 xl:px-[120px] pb-12 md:pb-16">
+      <section className="w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[120px] pb-8 sm:pb-12 md:pb-16">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 w-full max-w-[1392px] mx-auto">
           <div className="flex-1 min-w-0">
             <ContactFormSection />

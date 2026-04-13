@@ -1,5 +1,6 @@
 import { XIcon } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./button";
 import { Card, CardContent } from "./card";
 import { Input } from "./input";
@@ -47,6 +48,7 @@ export const EnrollmentCheckoutModal = ({
   onCheckout,
 }: EnrollmentCheckoutModalProps): JSX.Element | null => {
   const [couponCode, setCouponCode] = useState("");
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
@@ -192,8 +194,8 @@ export const EnrollmentCheckoutModal = ({
             </Button>
             <Button
               onClick={() => {
-                if (onCheckout) onCheckout();
                 onClose();
+                navigate("/checkout");
               }}
               className="h-auto flex-1 px-4 py-3 bg-[#0072de] hover:bg-[#005bb5] rounded-[10px] border-0 [font-family:'Open_Sans',Helvetica] font-semibold text-white text-base text-center tracking-[0] leading-5 whitespace-nowrap"
             >

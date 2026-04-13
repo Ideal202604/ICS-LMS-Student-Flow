@@ -181,16 +181,16 @@ export const Courses = (): JSX.Element => {
       {/* Hero Section */}
       <div id="hero" className="relative w-full overflow-y-auto" style={{ maxHeight: "calc(100vh - 81px)" }}>
         <img
-          className="w-full h-[340px] sm:h-[450px] md:h-[555px] lg:h-[655px] object-cover"
+          className="w-full h-[260px] sm:h-[380px] md:h-[500px] lg:h-[655px] object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-01.png"
         />
         <img
-          className="absolute top-0 left-0 w-full h-[340px] sm:h-[450px] md:h-[555px] lg:h-[655px] object-cover"
+          className="absolute top-0 left-0 w-full h-[260px] sm:h-[380px] md:h-[500px] lg:h-[655px] object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg"
         />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center px-4 sm:px-8 md:px-12 lg:px-16">
+        <div className="absolute top-0 left-0 w-full h-full flex items-center px-3 sm:px-6 md:px-12 lg:px-16">
           <HeroCourseIntroductionSection />
         </div>
 

@@ -41,7 +41,7 @@ export const Login = (): JSX.Element => {
   return (
     <div className="flex flex-col min-h-screen w-full bg-[#eff7ff]">
       {/* Top Navigation Bar */}
-      <header className="w-full h-[81px] bg-white flex items-center px-4 md:px-8 lg:px-16 xl:px-[264px] justify-between flex-shrink-0 z-10 relative">
+      <header className="w-full h-[81px] bg-white flex items-center px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] justify-between flex-shrink-0 z-10 relative animate-fade-in-down">
         {/* Logo */}
         <img
           className="w-[50px] md:w-[69px] h-auto object-contain cursor-pointer"
@@ -56,11 +56,11 @@ export const Login = (): JSX.Element => {
             <button
               key={item.label}
               onClick={() => navigate(item.href)}
-              className={`inline-flex h-12 items-center justify-center gap-2.5 px-3 lg:px-5 py-4 rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? "bg-[#e8f6ff]" : ""}`}
+              className={`inline-flex h-12 items-center justify-center gap-2.5 px-5 py-4 rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? "bg-[#e8f6ff]" : ""}`}
             >
               <img className="w-6 h-6" alt="Frame" src={item.icon} />
               <span
-                className={`hidden lg:inline [font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.active ? "text-accent-buttons-links" : "text-primary-headings-navigation"}`}
+                className={`[font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.active ? "text-accent-buttons-links" : "text-primary-headings-navigation"}`}
               >
                 {item.label}
               </span>
@@ -118,52 +118,52 @@ export const Login = (): JSX.Element => {
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col items-center px-4 md:px-8 lg:px-16 xl:px-[264px] py-8 md:py-12 lg:py-[96px] relative">
+      <main className="flex-1 flex flex-col items-center px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 sm:py-8 md:py-12 lg:py-[96px] relative">
         {/* Card container with image and sign-in form */}
-        <div className="relative w-full flex flex-col lg:flex-row rounded-[30px] overflow-hidden shadow-md">
+        <div className="relative w-full flex flex-col lg:flex-row rounded-[20px] sm:rounded-[30px] overflow-hidden shadow-md animate-scale-in">
           {/* Left: Photo of students */}
-          <div className="relative flex-shrink-0 w-full lg:w-1/2">
+          <div className="relative flex-shrink-0 w-full lg:w-[45%]">
             {/* Decorative shape behind image (top-left) */}
             <img
-              className="absolute top-[-31px] left-[-1px] w-[150px] sm:w-[200px] lg:w-[253px] h-auto z-10 pointer-events-none"
+              className="absolute top-[-16px] sm:top-[-31px] left-[-1px] w-[60px] sm:w-[140px] lg:w-[253px] h-auto z-10 pointer-events-none"
               alt="Shape"
               src="https://c.animaapp.com/mnwuy1bl8tBZoj/img/shape-1.svg"
             />
             {/* Main photo */}
             <img
-              className="w-full h-[300px] sm:h-[400px] lg:h-[796px] rounded-t-[30px] lg:rounded-t-none lg:rounded-l-[30px] object-cover relative z-0"
+              className="w-full h-[180px] sm:h-[260px] md:h-[320px] lg:h-full rounded-t-[20px] sm:rounded-t-[30px] lg:rounded-t-none lg:rounded-l-[30px] object-cover object-center relative z-0 animate-slide-in-left"
               alt="Students"
               src="https://c.animaapp.com/mnwuy1bl8tBZoj/img/rectangle-39421.png"
             />
             {/* Decorative shape bottom */}
             <img
-              className="absolute bottom-[-40px] lg:bottom-[-63px] left-1/2 lg:left-[49%] w-[200px] lg:w-[363px] h-auto z-20 pointer-events-none hidden sm:block"
+              className="absolute bottom-[-12px] sm:bottom-[-20px] lg:bottom-[-63px] left-1/2 lg:left-[49%] w-[80px] sm:w-[180px] lg:w-[363px] h-auto z-20 pointer-events-none hidden sm:block"
               alt="Shape"
               src="https://c.animaapp.com/mnwuy1bl8tBZoj/img/shape-2.svg"
             />
             {/* Decorative shape overlay */}
             <img
-              className="absolute bottom-[-40px] lg:bottom-[-60px] left-0 w-[300px] lg:w-[520px] h-auto z-10 pointer-events-none hidden sm:block"
+              className="absolute bottom-[-12px] sm:bottom-[-20px] lg:bottom-[-60px] left-0 w-[120px] sm:w-[260px] lg:w-[520px] h-auto z-10 pointer-events-none hidden sm:block"
               alt="Shape"
               src="https://c.animaapp.com/mnwuy1bl8tBZoj/img/shape.svg"
             />
           </div>
 
           {/* Right: Background + SignInFormSection */}
-          <div className="relative flex-1">
+          <div className="relative flex-1 animate-slide-in-right">
             <img
               className="absolute inset-0 w-full h-full object-cover"
               alt="Background"
               src="https://c.animaapp.com/mnwuy1bl8tBZoj/img/rectangle-39422.svg"
             />
-            <div className="relative z-10 w-full h-full flex items-center justify-center px-4 sm:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
+            <div className="relative z-10 w-full h-full flex items-center justify-center px-3 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 lg:py-16">
               <SignInFormSection />
             </div>
           </div>
         </div>
 
         {/* AuthShowcaseSection (footer area) below the card */}
-        <div className="w-full mt-10">
+        <div className="w-full mt-8 sm:mt-10 section-animate animation-delay-300">
           <AuthShowcaseSection />
         </div>
       </main>
@@ -171,7 +171,7 @@ export const Login = (): JSX.Element => {
       {/* Footer copyright */}
       <footer className="w-full bg-white flex-shrink-0">
         <Separator className="bg-[#cdcdcd]" />
-        <div className="flex items-center justify-center h-[70px] md:h-[93px] px-4 md:px-8 lg:px-[264px]">
+        <div className="flex items-center justify-center h-[60px] sm:h-[70px] md:h-[93px] px-3 sm:px-6 md:px-8 lg:px-[264px]">
           <p className="font-regular-13px font-[number:var(--regular-13px-font-weight)] text-base-02 text-[length:var(--regular-13px-font-size)] text-center tracking-[var(--regular-13px-letter-spacing)] leading-[var(--regular-13px-line-height)] [font-style:var(--regular-13px-font-style)]">
             © Copyright 2026, All Rights Reserved by Idealizeer
           </p>

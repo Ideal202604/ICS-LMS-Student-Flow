@@ -31,9 +31,9 @@ const highlights = [
 
 export const ApproachHighlightsSection = (): JSX.Element => {
   return (
-    <div className="flex flex-nowrap items-start justify-center gap-4 w-full">
+    <div className="grid grid-cols-2 lg:grid-cols-4 items-start justify-center gap-6 lg:gap-4 w-full">
       {highlights.map((item, index) => (
-        <div key={index} className="flex flex-col flex-1 min-w-0 items-center gap-6">
+        <div key={index} className="flex flex-col items-center gap-4 lg:gap-6">
           <img
             className={`${item.imgWidth} h-16 object-contain`}
             alt="Vector"

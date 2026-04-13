@@ -6,9 +6,10 @@ import { Courses } from "./screens/Courses";
 import { HomePage } from "./screens/HomePage";
 import { Login } from "./screens/Login";
 import { Register } from "./screens/Register";
-import { LmsStudentFlow } from "./screens/LmsStudentFlow/LmsStudentFlow";
 import { About } from "./screens/About";
 import { CoursesDetails } from "./screens/CourseDetails";
+import { Checkout } from "./screens/Checkout";
+import { CoursePlay } from "./screens/CoursePlay";
 
 createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
@@ -21,7 +22,8 @@ createRoot(document.getElementById("app") as HTMLElement).render(
         <Route path="/courses" element={<Courses />} />
         <Route path="/about" element={<About />} />
         <Route path="/courses/:courseSlug" element={<CoursesDetails />} />
-        <Route path="/lms-student-flow" element={<LmsStudentFlow />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/course-play" element={<CoursePlay />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

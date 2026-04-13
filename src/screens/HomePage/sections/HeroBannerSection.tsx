@@ -15,7 +15,7 @@ export const HeroBannerSection = (): JSX.Element => {
           </div>
           {/* Heading and description */}
           <div className="flex flex-col items-start gap-4 relative self-stretch w-full">
-            <h1 className="w-full [text-shadow:0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-3xl sm:text-5xl lg:text-7xl tracking-[0] leading-[40px] sm:leading-[56px] lg:leading-[84px]">
+            <h1 className="w-full [text-shadow:0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-2xl sm:text-4xl md:text-5xl lg:text-7xl tracking-[0] leading-[34px] sm:leading-[48px] md:leading-[56px] lg:leading-[84px] animate-slide-in-left">
               Master In-Demand Skills
               <br />
               With Expert-Led Courses
@@ -28,17 +28,17 @@ export const HeroBannerSection = (): JSX.Element => {
           </div>
         </div>
         {/* CTA Buttons */}
-        <div className="inline-flex items-center gap-4">
-          <Button className="h-auto inline-flex items-center justify-center gap-2.5 px-[26px] py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-lg tracking-[0] leading-6 whitespace-nowrap">
+          <div className="inline-flex items-center gap-3 sm:gap-4 flex-wrap">
+          <Button className="btn-animate h-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-[26px] py-2.5 sm:py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base sm:text-lg tracking-[0] leading-6 whitespace-nowrap animate-bounce-in animation-delay-400">
             Explore Courses
           </Button>
           <Button
             variant="outline"
-            className="h-auto inline-flex items-center justify-center gap-2.5 px-[26px] py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-gray-50 [font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-lg tracking-[0] leading-6 whitespace-nowrap"
+            className="btn-animate h-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-[26px] py-2.5 sm:py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-gray-50 [font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-base sm:text-lg tracking-[0] leading-6 whitespace-nowrap animate-bounce-in animation-delay-500"
           >
             Contact
           </Button>
-        </div>
+          </div>
       </div>
       {/* Rating and Certifications */}
       <div className="flex flex-col w-full max-w-[459px] items-start gap-4">

@@ -53,7 +53,7 @@ export const HomePage = (): JSX.Element => {
   return (
     <div className="relative w-full bg-white overflow-x-hidden flex flex-col">
       {/* ── Navigation Bar ── */}
-      <header className="w-full h-[81px] bg-white flex items-center justify-between relative z-10 shadow-sm px-4 md:px-8 lg:px-16 xl:px-[264px]">
+      <header className="w-full h-[81px] bg-white flex items-center justify-between relative z-10 shadow-sm px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] animate-fade-in-down">
         <div className="flex items-center">
           <img
             className="w-[69px] h-[84px] object-contain"
@@ -66,11 +66,11 @@ export const HomePage = (): JSX.Element => {
             <button
               key={item.label}
               onClick={() => navigate(item.href)}
-              className={`inline-flex h-12 items-center justify-center gap-2.5 px-3 lg:px-5 py-4 relative rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? "bg-[#e8f6ff]" : ""}`}
+              className={`inline-flex h-12 items-center justify-center gap-2.5 px-5 py-4 relative rounded-lg cursor-pointer transition-colors hover:bg-[#e8f6ff] ${item.active ? "bg-[#e8f6ff]" : ""}`}
             >
               <img className="relative w-6 h-6" alt="Frame" src={item.icon} />
               <span
-                className={`hidden lg:inline [font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.active ? "text-accent-buttons-links" : "text-primary-headings-navigation"}`}
+                className={`[font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${item.active ? "text-accent-buttons-links" : "text-primary-headings-navigation"}`}
               >
                 {item.label}
               </span>
@@ -123,28 +123,28 @@ export const HomePage = (): JSX.Element => {
             backgroundSize: "cover",
           }}
         />
-        <div className="relative z-10 w-full px-4 md:px-8 lg:px-16 xl:px-[264px] py-8 md:py-16">
+        <div className="relative z-10 w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 sm:py-8 md:py-16">
           <HeroBannerSection />
         </div>
       </section>
 
       {/* ── Featured Courses Section ── */}
       <section className="w-full relative bg-white">
-        <div className="flex flex-col items-center gap-4 pt-12 pb-8 px-4">
-          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-[44px] text-center tracking-[-0.88px] leading-[52px] w-full max-w-[883px]">
+        <div className="flex flex-col items-center gap-3 sm:gap-4 pt-8 sm:pt-12 pb-6 sm:pb-8 px-3 sm:px-6 section-animate">
+          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-[28px] sm:text-[36px] md:text-[44px] text-center tracking-[-0.88px] leading-[36px] sm:leading-[44px] md:leading-[52px] w-full max-w-[883px]">
             Feature Courses
           </h2>
-          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-lg text-center tracking-[0] leading-7 w-full max-w-[883px]">
+          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base sm:text-lg text-center tracking-[0] leading-6 sm:leading-7 w-full max-w-[883px]">
             Upgrade your skills with industry-ready courses designed to boost your career.
           </p>
         </div>
-        <div className="relative w-full px-4 md:px-8 lg:px-16 xl:px-[264px] pb-4">
+        <div className="relative w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] pb-4">
           <FeaturedCoursesSection />
         </div>
-        <div className="flex items-center justify-center py-8">
+        <div className="flex items-center justify-center py-6 sm:py-8">
           <button
             onClick={() => navigate("/courses")}
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] cursor-pointer hover:bg-gray-50 transition-colors"
+            className="btn-animate inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] cursor-pointer hover:bg-gray-50 transition-colors"
           >
             <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-lg tracking-[0] leading-6 whitespace-nowrap">
               View All Courses
@@ -160,16 +160,16 @@ export const HomePage = (): JSX.Element => {
 
       {/* ── Why Choose Us Section ── */}
       <section className="w-full relative bg-[#0152a0]">
-        <div className="flex flex-col items-center gap-4 pt-12 pb-8 px-4">
-          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-[44px] text-center tracking-[-0.88px] leading-[52px] w-full max-w-[883px]">
+        <div className="flex flex-col items-center gap-3 sm:gap-4 pt-8 sm:pt-12 pb-6 sm:pb-8 px-3 sm:px-6 section-animate">
+          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-[28px] sm:text-[36px] md:text-[44px] text-center tracking-[-0.88px] leading-[36px] sm:leading-[44px] md:leading-[52px] w-full max-w-[883px]">
             Why Choose Us ?
           </h2>
-          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-white text-lg text-center tracking-[0] leading-7 w-full max-w-[883px]">
+          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-white text-base sm:text-lg text-center tracking-[0] leading-6 sm:leading-7 w-full max-w-[883px]">
             Upgrade your skills with industry-ready courses designed to boost your career.
           </p>
         </div>
         {/* Cards + Center Image */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-8 pb-12 px-4 md:px-8 lg:px-16 xl:px-[264px]">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-6 sm:gap-8 pb-8 sm:pb-12 px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
           {/* Left cards */}
           <div className="flex flex-col gap-6 flex-1">
             {[whyChooseUsCards[0], whyChooseUsCards[2]].map((card) => (
@@ -232,15 +232,15 @@ export const HomePage = (): JSX.Element => {
 
       {/* ── Student Testimonials Section ── */}
       <section className="w-full relative bg-[#f0f7ff]">
-        <div className="flex flex-col items-center gap-4 pt-12 pb-8 px-4">
-          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-[44px] text-center tracking-[-0.88px] leading-[52px] w-full max-w-[883px]">
+        <div className="flex flex-col items-center gap-3 sm:gap-4 pt-8 sm:pt-12 pb-6 sm:pb-8 px-3 sm:px-6 section-animate">
+          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-[28px] sm:text-[36px] md:text-[44px] text-center tracking-[-0.88px] leading-[36px] sm:leading-[44px] md:leading-[52px] w-full max-w-[883px]">
             Student feedbacks
           </h2>
-          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-lg text-center tracking-[0] leading-7 w-full max-w-[883px]">
+          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base sm:text-lg text-center tracking-[0] leading-6 sm:leading-7 w-full max-w-[883px]">
             What Students Say About Academy LMS
           </p>
         </div>
-        <div className="relative flex items-center justify-center px-4 md:px-12 lg:px-[100px] xl:px-[220px] pb-12">
+        <div className="relative flex items-center justify-center px-3 sm:px-6 md:px-12 lg:px-[100px] xl:px-[220px] pb-8 sm:pb-12">
           <div className="flex-shrink-0 mr-4">
             <img
               className="w-11 h-11 cursor-pointer"
@@ -263,15 +263,15 @@ export const HomePage = (): JSX.Element => {
 
       {/* ── Latest Articles Section ── */}
       <section className="w-full relative bg-white">
-        <div className="flex flex-col items-center gap-4 pt-12 pb-8 px-4">
-          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-[44px] text-center tracking-[-0.88px] leading-[52px] w-full max-w-[883px]">
+        <div className="flex flex-col items-center gap-3 sm:gap-4 pt-8 sm:pt-12 pb-6 sm:pb-8 px-3 sm:px-6 section-animate">
+          <h2 className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-[28px] sm:text-[36px] md:text-[44px] text-center tracking-[-0.88px] leading-[36px] sm:leading-[44px] md:leading-[52px] w-full max-w-[883px]">
             Latest articles
           </h2>
-          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-lg text-center tracking-[0] leading-7 w-full max-w-[883px]">
+          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base sm:text-lg text-center tracking-[0] leading-6 sm:leading-7 w-full max-w-[883px]">
             Explore our Free Articles
           </p>
         </div>
-        <div className="w-full pb-12 px-4 md:px-8 lg:px-16 xl:px-[264px]">
+        <div className="w-full pb-8 sm:pb-12 px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
           <LatestArticlesSection />
         </div>
       </section>
