@@ -143,6 +143,17 @@ const sidebarActions = [
 
 export const CourseDetailLayoutSection = (): JSX.Element => {
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [shareToast, setShareToast] = useState(false);
+  const [syllabusOpen, setSyllabusOpen] = useState(false);
+
+  const handleSave = () => setSaved((prev) => !prev);
+
+  const handleShare = () => {
+    navigator.clipboard?.writeText(window.location.href).catch(() => {});
+    setShareToast(true);
+    setTimeout(() => setShareToast(false), 2500);
+  };
 
   return (
     <>
@@ -519,23 +530,64 @@ export const CourseDetailLayoutSection = (): JSX.Element => {
               />
               <div className="flex flex-col items-center gap-6 pl-8 pr-[31px] pt-6 pb-8 bg-white rounded-[0px_0px_30px_30px]">
                 {/* Action buttons */}
-                <div className="flex items-center gap-[54px]">
-                  {sidebarActions.map((action, idx) => (
-                    <button
-                      key={idx}
-                      className="flex flex-col items-center justify-center gap-2 px-6 py-2.5 bg-[#e9ebef] rounded-2xl cursor-pointer"
-                    >
-                      <img
-                        className="w-6 h-6"
-                        alt={action.label}
-                        src={action.icon}
-                      />
-                      <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-base tracking-[0] leading-6 whitespace-nowrap">
-                        {action.label}
-                      </span>
-                    </button>
-                  ))}
+                <div className="flex items-center gap-[54px] relative">
+                  {/* Save */}
+                  <button
+                    onClick={handleSave}
+                    className={`flex flex-col items-center justify-center gap-2 px-6 py-2.5 rounded-2xl cursor-pointer transition-all duration-200 active:scale-95 ${saved ? "bg-[#dbeafe] ring-2 ring-[#0072de]" : "bg-[#e9ebef] hover:bg-[#d4d8e0]"}`}
+                    title={saved ? "Unsave course" : "Save course"}
+                  >
+                    <img className="w-6 h-6" alt="Save" src={sidebarActions[0].icon} />
+                    <span className={`[font-family:'Open_Sans',Helvetica] font-semibold text-base tracking-[0] leading-6 whitespace-nowrap ${saved ? "text-[#0072de]" : "text-black"}`}>
+                      {saved ? "Saved" : "Save"}
+                    </span>
+                  </button>
+                  {/* Syllabus */}
+                  <button
+                    onClick={() => setSyllabusOpen((prev) => !prev)}
+                    className="flex flex-col items-center justify-center gap-2 px-6 py-2.5 bg-[#e9ebef] hover:bg-[#d4d8e0] rounded-2xl cursor-pointer transition-all duration-200 active:scale-95"
+                    title="Download syllabus"
+                  >
+                    <img className="w-6 h-6" alt="Syllabus" src={sidebarActions[1].icon} />
+                    <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-base tracking-[0] leading-6 whitespace-nowrap">
+                      Syllabus
+                    </span>
+                  </button>
+                  {/* Share */}
+                  <button
+                    onClick={handleShare}
+                    className="flex flex-col items-center justify-center gap-2 px-6 py-2.5 bg-[#e9ebef] hover:bg-[#d4d8e0] rounded-2xl cursor-pointer transition-all duration-200 active:scale-95"
+                    title="Share course"
+                  >
+                    <img className="w-6 h-6" alt="Share" src={sidebarActions[2].icon} />
+                    <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-base tracking-[0] leading-6 whitespace-nowrap">
+                      Share
+                    </span>
+                  </button>
+                  {/* Share toast */}
+                  {shareToast && (
+                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#0072de] text-white text-sm font-semibold px-4 py-1.5 rounded-lg shadow-md whitespace-nowrap animate-fade-in-down">
+                      Link copied!
+                    </div>
+                  )}
                 </div>
+                {/* Syllabus dropdown */}
+                {syllabusOpen && (
+                  <div className="w-full flex flex-col gap-2 bg-[#f7fafc] rounded-2xl p-4 border border-[#eaebeb]">
+                    <p className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-base mb-1">Course Syllabus</p>
+                    {courseModules.map((mod, idx) => (
+                      <div key={idx} className="flex items-center gap-3">
+                        <div className="flex w-8 h-8 items-center justify-center bg-[#ecf5fd] rounded-lg flex-shrink-0">
+                          <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-sm">{mod.num}</span>
+                        </div>
+                        <div>
+                          <p className="[font-family:'Open_Sans',Helvetica] font-semibold text-black text-sm leading-5">{mod.title}</p>
+                          <p className="[font-family:'Open_Sans',Helvetica] font-normal text-[#6a6a6a] text-xs">{mod.meta}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 {/* Enroll Now button */}
                 <Button
                   onClick={() => setIsEnrollOpen(true)}

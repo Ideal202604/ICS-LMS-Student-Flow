@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../../../components/ui/button";
-import { Separator } from "../../../../components/ui/separator";
+import { EnrollmentCheckoutModal } from "../../../../components/ui/enrollment-checkout-modal";
 
 const quickLinks = ["Home", "All Courses", "Why Choose Us", "Blog"];
 const companyLinks = ["Privacy Policy", "Teams of Service", "Refund Policy", "FAQs"];
@@ -25,27 +26,31 @@ const socialIcons = [
 ];
 
 export const GlobalFooterSection = (): JSX.Element => {
-  const [enrollClicked, setEnrollClicked] = useState(false);
+  const navigate = useNavigate();
+  const [isEnrollOpen, setIsEnrollOpen] = useState(false);
   const [contactClicked, setContactClicked] = useState(false);
 
   const handleEnroll = () => {
-    setEnrollClicked(true);
-    setTimeout(() => setEnrollClicked(false), 2500);
+    setIsEnrollOpen(true);
   };
 
   const handleContact = () => {
     setContactClicked(true);
-    const el = document.getElementById("contact");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    navigate("/contact");
     setTimeout(() => setContactClicked(false), 2500);
   };
 
-  const handleNavLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleNavLink = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (link === "Home") navigate("/");
+    else if (link === "All Courses") navigate("/courses");
+    else if (link === "Why Choose Us") navigate("/");
+    else if (link === "Blog") navigate("/");
+    else navigate("/");
   };
 
   return (
+    <>
     <footer className="relative w-full flex flex-col">
       {/* CTA Banner Section */}
       <div
@@ -68,14 +73,12 @@ export const GlobalFooterSection = (): JSX.Element => {
           <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
             <Button
               onClick={handleEnroll}
-              className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-[#117ade] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#0f6bc7] transition-colors"
+              className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-[#117ade] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#0f6bc7] active:scale-95 transition-all"
             >
               <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-lg tracking-[0] leading-6 whitespace-nowrap">
-                {enrollClicked ? "Enrolled! 🎉" : "Enroll Now"}
+                Enroll Now
               </span>
-              {!enrollClicked && (
-                <img className="w-6 h-6" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
-              )}
+              <img className="w-6 h-6" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
             </Button>
 
             <Button
@@ -86,9 +89,7 @@ export const GlobalFooterSection = (): JSX.Element => {
               <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-lg tracking-[0] leading-6 whitespace-nowrap">
                 {contactClicked ? "Scrolling..." : "Contact Us"}
               </span>
-              {!contactClicked && (
-                <img className="w-6 h-6" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
-              )}
+              <img className="w-6 h-6" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-2.svg" />
             </Button>
           </div>
         </div>
@@ -119,7 +120,7 @@ export const GlobalFooterSection = (): JSX.Element => {
                 <a
                   key={link}
                   href="#"
-                  onClick={handleNavLink}
+                  onClick={(e) => handleNavLink(e, link)}
                   className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:text-[#0072de] hover:underline transition-colors"
                 >
                   {link}
@@ -173,10 +174,17 @@ export const GlobalFooterSection = (): JSX.Element => {
               {socialIcons.map((icon) => (
                 <a
                   key={icon.alt}
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href={
+                    icon.alt === "Instagram logo"
+                      ? "https://instagram.com"
+                      : icon.alt === "Linkedin icon svg"
+                      ? "https://linkedin.com"
+                      : "https://youtube.com"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={icon.alt}
-                  className="transition-opacity hover:opacity-75"
+                  className="transition-opacity hover:opacity-75 active:scale-95"
                 >
                   <img className={icon.className} alt={icon.alt} src={icon.src} />
                 </a>
@@ -195,5 +203,11 @@ export const GlobalFooterSection = (): JSX.Element => {
         </div>
       </div>
     </footer>
+
+      <EnrollmentCheckoutModal
+        isOpen={isEnrollOpen}
+        onClose={() => setIsEnrollOpen(false)}
+      />
+    </>
   );
 };

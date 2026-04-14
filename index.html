@@ -72,10 +72,33 @@
     }
     </script>
 
-    <!-- Fonts -->
-    <style>
-      @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Montserrat:600|Poppins:var(--regular-13px-font-weight)");
-    </style>
+    <!-- DNS prefetch for asset CDN -->
+    <link rel="dns-prefetch" href="https://c.animaapp.com" />
+    <link rel="preconnect" href="https://c.animaapp.com" crossorigin />
+
+    <!-- Google Fonts: preconnect first, then non-blocking load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@600&family=Poppins:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@600&family=Poppins:wght@400&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@600&family=Poppins:wght@400&display=swap" />
+    </noscript>
+
+    <!-- Preload above-the-fold hero images -->
+    <link rel="preload" as="image" href="https://c.animaapp.com/mnmyaijxgewU4q/img/uploaded-asset-1776140688440-0.png" />
+    <link rel="preload" as="image" href="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg" />
+    <link rel="preload" as="image" href="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-01.png" />
+
     <link href="tailwind.css" rel="stylesheet" />
   </head>
   <body>

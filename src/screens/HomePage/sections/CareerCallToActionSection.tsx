@@ -1,9 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 import { EnrollmentCheckoutModal } from "../../../components/ui/enrollment-checkout-modal";
 
-const quickLinks = ["Home", "All Courses", "Why Choose Us", "Blog"];
-const companyLinks = ["Privacy Policy", "Teams of Service", "Refund Policy", "FAQs"];
+const quickLinksData = [
+  { label: "Home", href: "/" },
+  { label: "All Courses", href: "/courses" },
+  { label: "Why Choose Us", href: "/" },
+  { label: "Blog", href: "/" },
+];
+const companyLinksData = [
+  { label: "Privacy Policy", href: "/" },
+  { label: "Teams of Service", href: "/" },
+  { label: "Refund Policy", href: "/" },
+  { label: "FAQs", href: "/" },
+];
 const contactInfo = ["+91 98904 51547", "ceo@idealizeer.com", "Pune, Maharashtra, India"];
 const socialIcons = [
   { alt: "Instagram logo", src: "https://c.animaapp.com/mnwpw3l9jXfMum/img/instagram-logo-2016-svg-1-1.png", className: "w-8 h-8 object-cover" },
@@ -13,6 +24,7 @@ const socialIcons = [
 
 export const CareerCallToActionSection = (): JSX.Element => {
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -52,6 +64,7 @@ export const CareerCallToActionSection = (): JSX.Element => {
             <Button
               className="btn-animate h-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-2.5 sm:py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-gray-50"
               variant="outline"
+              onClick={() => navigate("/contact")}
             >
               <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-base sm:text-lg tracking-[0] leading-6 whitespace-nowrap">
                 Contact Us
@@ -87,13 +100,14 @@ export const CareerCallToActionSection = (): JSX.Element => {
                 Quick Links
               </h3>
               <nav className="flex flex-col items-start gap-4">
-                {quickLinks.map((link) => (
+                {quickLinksData.map((link) => (
                   <a
-                    key={link}
-                    href="#"
-                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline"
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); navigate(link.href); }}
+                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline hover:text-[#0072de] transition-colors"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 ))}
               </nav>
@@ -104,13 +118,14 @@ export const CareerCallToActionSection = (): JSX.Element => {
                 Company
               </h3>
               <nav className="flex flex-col items-start gap-4">
-                {companyLinks.map((link) => (
+                {companyLinksData.map((link) => (
                   <a
-                    key={link}
-                    href="#"
-                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline"
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => e.preventDefault()}
+                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline hover:text-[#0072de] transition-colors"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 ))}
               </nav>
@@ -138,7 +153,7 @@ export const CareerCallToActionSection = (): JSX.Element => {
               </h3>
               <div className="flex items-center gap-6">
                 {socialIcons.map((icon) => (
-                  <a key={icon.alt} href="#" aria-label={icon.alt}>
+                  <a key={icon.alt} href={icon.alt === "Instagram logo" ? "https://instagram.com" : icon.alt === "Linkedin icon svg" ? "https://linkedin.com" : "https://youtube.com"} target="_blank" rel="noopener noreferrer" aria-label={icon.alt} className="transition-opacity hover:opacity-75">
                     <img className={icon.className} alt={icon.alt} src={icon.src} />
                   </a>
                 ))}

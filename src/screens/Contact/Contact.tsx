@@ -171,12 +171,18 @@ export const Contact = (): JSX.Element => {
           className="absolute inset-0 w-full h-full object-cover object-center"
           alt="Hero background"
           src="https://c.animaapp.com/mnwxk5sdBr2leB/img/screan-01.png"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         {/* Dark overlay image */}
         <img
           className="absolute inset-0 w-full h-full object-cover object-center"
           alt=""
           src="https://c.animaapp.com/mnwxk5sdBr2leB/img/screan-2.svg"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         {/* Left-to-right gradient for text readability */}
         <div

@@ -116,10 +116,14 @@ export const Courses = (): JSX.Element => {
           <Button
             variant="outline"
             className="h-12 px-5 py-4 bg-white rounded-lg border-0 shadow-none [font-family:'Open_Sans',Helvetica] font-semibold text-accent-buttons-links text-base tracking-[0] leading-6 whitespace-nowrap"
+            onClick={() => navigate("/login")}
           >
             Login
           </Button>
-          <Button className="h-12 px-5 py-4 bg-accent-buttons-links rounded-lg border border-solid border-[#0072de] shadow-[0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base tracking-[0] leading-6 whitespace-nowrap">
+          <Button
+            className="h-12 px-5 py-4 bg-accent-buttons-links rounded-lg border border-solid border-[#0072de] shadow-[0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base tracking-[0] leading-6 whitespace-nowrap"
+            onClick={() => navigate("/register")}
+          >
             Register
           </Button>
         </div>
@@ -168,10 +172,14 @@ export const Courses = (): JSX.Element => {
             <Button
               variant="outline"
               className="flex-1 h-11 bg-white rounded-lg border border-solid border-[#0072de] [font-family:'Open_Sans',Helvetica] font-semibold text-accent-buttons-links text-base"
+              onClick={() => { navigate("/login"); setMenuOpen(false); }}
             >
               Login
             </Button>
-            <Button className="flex-1 h-11 bg-accent-buttons-links rounded-lg border border-solid border-[#0072de] shadow-[0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base">
+            <Button
+              className="flex-1 h-11 bg-accent-buttons-links rounded-lg border border-solid border-[#0072de] shadow-[0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base"
+              onClick={() => { navigate("/register"); setMenuOpen(false); }}
+            >
               Register
             </Button>
           </div>
@@ -184,11 +192,17 @@ export const Courses = (): JSX.Element => {
           className="w-full h-[260px] sm:h-[380px] md:h-[500px] lg:h-[655px] object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-01.png"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <img
           className="absolute top-0 left-0 w-full h-[260px] sm:h-[380px] md:h-[500px] lg:h-[655px] object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute top-0 left-0 w-full h-full flex items-center px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
           <HeroCourseIntroductionSection />

@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { Button } from "../../../components/ui/button";
-import { Separator } from "../../../components/ui/separator";
+import { EnrollmentCheckoutModal } from "../../../components/ui/enrollment-checkout-modal";
 
 // Quick Links data
 const quickLinks = [
@@ -44,7 +46,11 @@ const socialIcons = [
 ];
 
 export const CareerCallToActionSection = (): JSX.Element => {
+  const navigate = useNavigate();
+  const [isEnrollOpen, setIsEnrollOpen] = useState(false);
+
   return (
+    <>
     <section className="relative w-full flex flex-col">
       {/* Hero CTA Banner */}
       <div
@@ -67,7 +73,10 @@ export const CareerCallToActionSection = (): JSX.Element => {
           </div>
           {/* CTA Buttons */}
           <div className="flex items-center gap-6 flex-wrap justify-center">
-            <Button className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-[#117ade] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#0f6bc4]">
+            <Button
+              onClick={() => setIsEnrollOpen(true)}
+              className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-[#117ade] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#0f6bc4]"
+            >
               <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-lg tracking-[0] leading-6 whitespace-nowrap">
                 Enroll Now
               </span>
@@ -79,6 +88,7 @@ export const CareerCallToActionSection = (): JSX.Element => {
             </Button>
             <Button
               variant="outline"
+              onClick={() => navigate("/contact")}
               className="h-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-gray-50"
             >
               <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-lg tracking-[0] leading-6 whitespace-nowrap">
@@ -118,7 +128,8 @@ export const CareerCallToActionSection = (): JSX.Element => {
                   <a
                     key={index}
                     href="#"
-                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline"
+                    onClick={(e) => { e.preventDefault(); navigate(link.label === "Home" ? "/" : link.label === "All Courses" ? "/courses" : "/"); }}
+                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline hover:text-[#0072de] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -135,7 +146,8 @@ export const CareerCallToActionSection = (): JSX.Element => {
                   <a
                     key={index}
                     href="#"
-                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline"
+                    onClick={(e) => e.preventDefault()}
+                    className="[font-family:'Open_Sans',Helvetica] font-normal text-black text-base tracking-[0] leading-6 whitespace-nowrap hover:underline hover:text-[#0072de] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -165,7 +177,7 @@ export const CareerCallToActionSection = (): JSX.Element => {
               </h3>
               <div className="flex items-center gap-6">
                 {socialIcons.map((icon, index) => (
-                  <a key={index} href="#" aria-label={icon.alt}>
+                  <a key={index} href={icon.alt === "Instagram logo" ? "https://instagram.com" : icon.alt === "Linkedin icon svg" ? "https://linkedin.com" : "https://youtube.com"} target="_blank" rel="noopener noreferrer" aria-label={icon.alt} className="transition-opacity hover:opacity-75">
                     <img
                       className={icon.className}
                       alt={icon.alt}
@@ -186,5 +198,11 @@ export const CareerCallToActionSection = (): JSX.Element => {
         </div>
       </footer>
     </section>
+
+      <EnrollmentCheckoutModal
+        isOpen={isEnrollOpen}
+        onClose={() => setIsEnrollOpen(false)}
+      />
+    </>
   );
 };

@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 
 export const HeroBannerSection = (): JSX.Element => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col w-full max-w-[883px] items-start gap-6">
       {/* Top content: badge, heading, description, buttons */}
@@ -29,11 +32,15 @@ export const HeroBannerSection = (): JSX.Element => {
         </div>
         {/* CTA Buttons */}
           <div className="inline-flex items-center gap-3 sm:gap-4 flex-wrap">
-          <Button className="btn-animate h-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-[26px] py-2.5 sm:py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base sm:text-lg tracking-[0] leading-6 whitespace-nowrap animate-bounce-in animation-delay-400">
+          <Button
+            onClick={() => navigate("/courses")}
+            className="btn-animate h-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-[26px] py-2.5 sm:py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5] [font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-base sm:text-lg tracking-[0] leading-6 whitespace-nowrap animate-bounce-in animation-delay-400"
+          >
             Explore Courses
           </Button>
           <Button
             variant="outline"
+            onClick={() => navigate("/contact")}
             className="btn-animate h-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-[26px] py-2.5 sm:py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-gray-50 [font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-base sm:text-lg tracking-[0] leading-6 whitespace-nowrap animate-bounce-in animation-delay-500"
           >
             Contact

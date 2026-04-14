@@ -19,6 +19,26 @@ You MUST maintain this file to track your work across messages. This is NON-NEGO
 
 <changelog>
 ## 2026-04-14 (latest)
+- Fixed GlobalFooterSection: added useNavigate, EnrollmentCheckoutModal, social links open in new tab
+- Quick Links now navigate correctly (Home→/, All Courses→/courses, Contact Us→/contact)
+- Enroll Now opens EnrollmentCheckoutModal; Contact Us navigates to /contact
+- Social icons (Instagram, LinkedIn, YouTube) now have real href targets with target="_blank"
+- File: src/screens/Courses/sections/GlobalFooterSection/GlobalFooterSection.tsx
+
+## 2026-04-14 (prev)
+- Performance: removed render-blocking Google Fonts @import from tailwind.css and index.html <style> tag
+- Added preconnect/dns-prefetch for fonts.googleapis.com, fonts.gstatic.com, c.animaapp.com CDN
+- Fonts now load non-blocking via media="print" onload swap pattern + <noscript> fallback
+- Added <link rel="preload"> for hero images (screan-01.png, screan-2.svg, uploaded hero)
+- Added fetchPriority="high" loading="eager" decoding="async" to all hero images on every page
+- Files: index.html, tailwind.css, HomePage.tsx, Courses.tsx, About.tsx, Contact.tsx
+
+## 2026-04-14
+- Wired Login → `/login` and Register → `/register` onClick on Courses page navbar (desktop + mobile menu)
+- Other pages (About, Contact, HomePage) already had these handlers — Courses was the only one missing them
+- File: src/screens/Courses/Courses.tsx
+
+## 2026-04-14
 - Removed CTA banner ("Start Your Career Journey Today") from Login page footer only
 - Cleaned up unused useState + Button imports from AuthShowcaseSection after banner removal
 - Other pages (Home, Courses, About, Contact) unaffected — their CTA banners remain intact

@@ -171,12 +171,18 @@ export const About = (): JSX.Element => {
           className="absolute inset-0 w-full h-full object-cover"
           alt="Background"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-01.png"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         {/* Gradient overlay — same as Courses page */}
         <img
           className="absolute inset-0 w-full h-full object-cover"
           alt="Overlay"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="relative z-10 w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 sm:py-8 md:py-16">
           <HeroBannerSection />
