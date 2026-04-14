@@ -95,8 +95,8 @@ export const GlobalFooterSection = (): JSX.Element => {
       </div>
 
       {/* Footer Links Section */}
-      <div className="w-full bg-white px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-12 md:py-24 flex flex-col items-center">
-        <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
+      <div className="w-full bg-white flex flex-col items-center">
+        <div className="w-full max-w-[1920px] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-12 md:py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
           {/* Logo + Description */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 flex flex-col items-start gap-6">
             <img
@@ -187,21 +187,11 @@ export const GlobalFooterSection = (): JSX.Element => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="w-full bg-white">
-        <div className="max-w-[1392px] mx-auto px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
-          <Separator className="bg-[#cdcdcd]" />
-        </div>
-        <div className="py-6 flex items-center justify-center relative px-4">
-          <p className="font-regular-13px font-[number:var(--regular-13px-font-weight)] text-base-02 text-[length:var(--regular-13px-font-size)] text-center tracking-[var(--regular-13px-letter-spacing)] leading-[var(--regular-13px-line-height)] [font-style:var(--regular-13px-font-style)]">
+      <div className="w-full bg-white border-t border-[#cdcdcd]">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 flex items-center justify-center relative">
+          <p className="[font-family:'Poppins',Helvetica] font-normal text-base-02 text-sm text-center tracking-[0] leading-6">
             © Copyright 2026, All Rights Reserved by Idealizeer
           </p>
-          <button
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-[60px] h-[60px] flex items-center justify-center transition-transform hover:scale-110 active:scale-95"
-            aria-label="Scroll to top"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            <img className="w-[60px] h-[60px]" alt="Frame" src="https://c.animaapp.com/mnmyaijxgewU4q/img/frame-73.svg" />
-          </button>
         </div>
       </div>
     </footer>

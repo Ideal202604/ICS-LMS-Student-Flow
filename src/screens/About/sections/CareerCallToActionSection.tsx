@@ -94,9 +94,8 @@ export const CareerCallToActionSection = (): JSX.Element => {
         </div>
       </div>
       {/* Footer Content */}
-      <footer className="w-full bg-white">
-        <div className="w-full flex justify-center px-4 md:px-8 lg:px-[108px] py-12 lg:py-24">
-          <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      <footer className="w-full bg-white flex flex-col items-center">
+        <div className="w-full max-w-[1920px] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-12 md:py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* Logo and description */}
             <div className="flex flex-col items-start gap-6 col-span-2 md:col-span-3 lg:col-span-1 max-w-[265px]">
               <img
@@ -176,13 +175,11 @@ export const CareerCallToActionSection = (): JSX.Element => {
                 ))}
               </div>
             </div>
-          </div>
         </div>
         {/* Copyright bar */}
-        <div className="w-full flex justify-center px-4 md:px-8 lg:px-[108px]">
-          <div className="w-full max-w-[1392px] flex flex-col items-center gap-[39px]">
-            <Separator className="bg-[#cdcdcd]" />
-            <p className="w-full font-regular-13px font-[number:var(--regular-13px-font-weight)] text-base-02 text-[length:var(--regular-13px-font-size)] text-center tracking-[var(--regular-13px-letter-spacing)] leading-[var(--regular-13px-line-height)] [font-style:var(--regular-13px-font-style)] pb-8">
+        <div className="w-full border-t border-[#cdcdcd]">
+          <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 flex items-center justify-center">
+            <p className="[font-family:'Poppins',Helvetica] font-normal text-base-02 text-sm text-center tracking-[0] leading-6">
               © Copyright 2026, All Rights Reserved by Idealizeer
             </p>
           </div>

@@ -155,10 +155,9 @@ export const Register = (): JSX.Element => {
       <FooterInfoSection />
 
       {/* Copyright Bar */}
-      <footer className="w-full bg-white flex-shrink-0">
-        <Separator className="bg-[#cdcdcd]" />
-        <div className="flex items-center justify-center h-[60px] sm:h-[70px] md:h-[93px] px-3 sm:px-6 md:px-8 lg:px-[264px]">
-          <p className="font-regular-13px font-[number:var(--regular-13px-font-weight)] text-base-02 text-[length:var(--regular-13px-font-size)] text-center tracking-[var(--regular-13px-letter-spacing)] leading-[var(--regular-13px-line-height)] [font-style:var(--regular-13px-font-style)]">
+      <footer className="w-full bg-white flex-shrink-0 border-t border-[#cdcdcd]">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 flex items-center justify-center">
+          <p className="[font-family:'Poppins',Helvetica] font-normal text-base-02 text-sm text-center tracking-[0] leading-6">
             © Copyright 2026, All Rights Reserved by Idealizeer
           </p>
         </div>

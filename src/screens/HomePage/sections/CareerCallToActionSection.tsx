@@ -68,8 +68,7 @@ export const CareerCallToActionSection = (): JSX.Element => {
 
       {/* Footer Section */}
       <footer className="w-full bg-white flex flex-col items-center">
-        <div className="w-full flex flex-col items-center px-3 sm:px-6 md:px-12 lg:px-[108px] py-8 sm:py-12 md:py-24">
-          <div className="w-full max-w-[1392px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="w-full max-w-[1920px] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-12 md:py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {/* Logo and description */}
             <div className="flex flex-col items-start gap-6 col-span-2 md:col-span-3 lg:col-span-1 max-w-[265px]">
               <img
@@ -145,12 +144,11 @@ export const CareerCallToActionSection = (): JSX.Element => {
                 ))}
               </div>
             </div>
-          </div>
         </div>
         {/* Copyright bar */}
-        <div className="w-full border-t border-solid border-[#cdcdcd]">
-          <div className="w-full max-w-[1392px] mx-auto py-6 px-4 flex items-center justify-center">
-            <p className="[font-family:'Poppins',Helvetica] font-normal text-base-02 text-[14px] text-center tracking-[0] leading-[22px]">
+        <div className="w-full border-t border-[#cdcdcd]">
+          <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-6 flex items-center justify-center">
+            <p className="[font-family:'Poppins',Helvetica] font-normal text-base-02 text-sm text-center tracking-[0] leading-6">
               © Copyright 2026, All Rights Reserved by Idealizeer
             </p>
           </div>

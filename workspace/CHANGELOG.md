@@ -18,16 +18,35 @@ You MUST maintain this file to track your work across messages. This is NON-NEGO
 </instructions>
 
 <changelog>
-## 2026-04-13 (latest)
-- Added full in-memory backend API layer (`src/lib/api.ts`) — auth, contact, checkout, coupon validation, courses
-- Created AuthProvider context (`src/lib/auth-context.tsx`) for global user state
-- Created toast notification system (`src/components/ui/toast.tsx`) with success/error/info types
-- Wired all forms: Login, Register, Contact, Checkout billing, Enrollment modal — with validation, loading states, error display
-- Coupon codes work in enrollment modal: SAVE10, LEARN20, ICS50; discount reflected in total
-- Files: api.ts, auth-context.tsx, toast.tsx, SignInFormSection, CreateAccountFormSection, ContactFormSection, BillingFormSection, OrderSummarySection, enrollment-checkout-modal.tsx, index.tsx
+## 2026-04-14 (latest)
+- Removed CTA banner ("Start Your Career Journey Today") from Login page footer only
+- Cleaned up unused useState + Button imports from AuthShowcaseSection after banner removal
+- Other pages (Home, Courses, About, Contact) unaffected — their CTA banners remain intact
+- File: src/screens/Login/sections/AuthShowcaseSection.tsx
 
-## 2026-04-13
-- Removed duplicate "Start Your Career Journey Today" + footer section from HomePage
+## 2026-04-14
+- Removed arrow icon images from "Enroll Now" and "Contact Us" buttons in Login page footer CTA banner only
+- File: src/screens/Login/sections/AuthShowcaseSection.tsx
+
+## 2026-04-14
+- Standardized Login page footer (AuthShowcaseSection) to exactly match GlobalFooterSection used on all other pages
+- Added CTA banner ("Start Your Career Journey Today"), 5-col links grid, social icons, and copyright bar
+- Moved footer out of `<main>` into proper bottom slot; removed old bare copyright-only `<footer>` tag
+- Files: src/screens/Login/sections/AuthShowcaseSection.tsx, src/screens/Login/Login.tsx
+
+## 2026-04-14
+- Fixed Courses section background: replaced broken uploaded asset URL with working rectangle-9796.png
+- Applied left-to-right blue gradient overlay (0.90→0.60→0.25) with cover/center, minHeight 500px, pt/pb 80px
+- Cards now properly float over the background; section padding-top reduced in CourseGridSection for tighter spacing
+- Files: Courses.tsx, CourseGridSection.tsx
+
+## 2026-04-14
+- Replaced HomePage hero background image with uploaded student-with-laptop photo
+- Kept blue transparent overlay (screan-2.svg) and all text/content unchanged
+- File: src/screens/HomePage/HomePage.tsx
+
+## 2026-04-13 (latest)
+- Removed duplicate "Start Your Career Journey Today" + footer section from HomePage (the `WhyChooseUsSection` between Why Choose Us cards and Student Feedbacks)
 - HomePage now flows: Hero → Courses → Why Choose Us → Testimonials → Articles → Career CTA + Footer (single instance)
 - File: src/screens/HomePage/HomePage.tsx
 

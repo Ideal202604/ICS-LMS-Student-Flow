@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -15,31 +14,7 @@ const billingFields = [
   { id: "phoneNumber", label: "Phone Number", placeholder: "Phone Number" },
 ];
 
-export interface BillingData {
-  fullName: string;
-  emailAddress: string;
-  phoneNumber: string;
-}
-
-// Emit billing data changes to parent via a global event-like pattern
-let billingDataCallback: ((data: BillingData) => void) | null = null;
-export function onBillingDataChange(cb: (data: BillingData) => void) {
-  billingDataCallback = cb;
-}
-
 export const BillingFormSection = (): JSX.Element => {
-  const [values, setValues] = useState<BillingData>({
-    fullName: "",
-    emailAddress: "",
-    phoneNumber: "",
-  });
-
-  const handleChange = (id: string, value: string) => {
-    const updated = { ...values, [id]: value };
-    setValues(updated);
-    billingDataCallback?.(updated);
-  };
-
   return (
     <div className="flex flex-col items-start justify-center gap-[45px] w-full relative">
       {/* Header section */}
@@ -77,8 +52,6 @@ export const BillingFormSection = (): JSX.Element => {
               <Input
                 id={field.id}
                 placeholder={field.placeholder}
-                value={values[field.id as keyof BillingData]}
-                onChange={(e) => handleChange(field.id, e.target.value)}
                 className="h-9 px-3 py-1 bg-white rounded-[10px] border border-transparent [font-family:'Open_Sans',Helvetica] font-normal text-gray-500 text-base tracking-[0] leading-normal placeholder:text-gray-500 placeholder:text-base placeholder:[font-family:'Open_Sans',Helvetica]"
               />
             </div>

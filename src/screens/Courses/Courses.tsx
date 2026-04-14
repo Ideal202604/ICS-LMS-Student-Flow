@@ -198,8 +198,10 @@ export const Courses = (): JSX.Element => {
 
       {/* Main content sections */}
       <main id="courses" className="flex flex-col w-full">
-        <CoursesOverviewSection />
-        <CourseGridSection />
+        <section className="w-full flex flex-col bg-[#eff7ff] py-10 sm:py-14">
+          <CoursesOverviewSection />
+          <CourseGridSection />
+        </section>
         <CareerCTASection />
       </main>
 

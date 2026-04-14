@@ -165,19 +165,30 @@ export const Contact = (): JSX.Element => {
       </div>
 
       {/* Hero Banner with background images */}
-      <section className="relative w-full overflow-hidden">
+      <section className="relative w-full overflow-hidden" style={{ minHeight: "clamp(200px, 40vw, 444px)" }}>
+        {/* Base background image */}
         <img
-          className="w-full h-[200px] sm:h-[300px] md:h-[444px] object-cover"
-          alt="Screan"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          alt="Hero background"
           src="https://c.animaapp.com/mnwxk5sdBr2leB/img/screan-01.png"
         />
+        {/* Dark overlay image */}
         <img
-          className="absolute top-0 left-0 w-full h-[200px] sm:h-[300px] md:h-[444px] object-cover"
-          alt="Screan"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          alt=""
           src="https://c.animaapp.com/mnwxk5sdBr2leB/img/screan-2.svg"
         />
-        {/* HeroBannerSection overlay */}
-        <div className="absolute top-0 left-0 w-full h-full flex items-center">
+        {/* Left-to-right gradient for text readability */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to right, rgba(10,30,70,0.82) 0%, rgba(10,30,70,0.60) 45%, rgba(10,30,70,0.10) 100%)",
+          }}
+        />
+        {/* Spacer so section has height */}
+        <div className="w-full" style={{ paddingTop: "clamp(200px, 40vw, 444px)" }} />
+        {/* Text overlay */}
+        <div className="absolute inset-0 flex items-center">
           <ContactHeroBannerSection />
         </div>
       </section>

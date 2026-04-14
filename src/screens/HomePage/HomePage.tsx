@@ -99,11 +99,11 @@ export const HomePage = (): JSX.Element => {
 
       {/* ── Hero Banner Section ── */}
       <section className="relative w-full min-h-[260px] sm:min-h-[380px] md:min-h-[500px] lg:min-h-[655px] flex items-center overflow-hidden">
-        {/* Base background image — same as Courses/About/Contact */}
+        {/* Base background image */}
         <img
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top"
           alt="Background"
-          src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-01.png"
+          src="https://c.animaapp.com/mnmyaijxgewU4q/img/uploaded-asset-1776140688440-0.png"
         />
         {/* Dark blue gradient overlay — same as Courses/About/Contact */}
         <img

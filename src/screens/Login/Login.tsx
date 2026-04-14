@@ -162,21 +162,10 @@ export const Login = (): JSX.Element => {
           </div>
         </div>
 
-        {/* AuthShowcaseSection (footer area) below the card */}
-        <div className="w-full mt-8 sm:mt-10 section-animate animation-delay-300">
-          <AuthShowcaseSection />
-        </div>
-      </main>
+        </main>
 
-      {/* Footer copyright */}
-      <footer className="w-full bg-white flex-shrink-0">
-        <Separator className="bg-[#cdcdcd]" />
-        <div className="flex items-center justify-center h-[60px] sm:h-[70px] md:h-[93px] px-3 sm:px-6 md:px-8 lg:px-[264px]">
-          <p className="font-regular-13px font-[number:var(--regular-13px-font-weight)] text-base-02 text-[length:var(--regular-13px-font-size)] text-center tracking-[var(--regular-13px-letter-spacing)] leading-[var(--regular-13px-line-height)] [font-style:var(--regular-13px-font-style)]">
-            © Copyright 2026, All Rights Reserved by Idealizeer
-          </p>
-        </div>
-      </footer>
+      {/* Standardized Footer — matches all other pages */}
+      <AuthShowcaseSection />
 
       {/* Floating Chat Widget */}
       <FloatingChatButtons />

@@ -1,38 +1,10 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent, CardHeader } from "../../../components/ui/card";
 import { Separator } from "../../../components/ui/separator";
-import { processCheckout } from "../../../lib/api";
-import { showToast } from "../../../components/ui/toast";
-import { type BillingData, onBillingDataChange } from "./BillingFormSection";
 
 export const OrderSummarySection = (): JSX.Element => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [billing, setBilling] = useState<BillingData>({ fullName: "", emailAddress: "", phoneNumber: "" });
-
-  useEffect(() => {
-    onBillingDataChange((data) => setBilling(data));
-  }, []);
-
-  const handlePayment = async () => {
-    setLoading(true);
-    const res = await processCheckout({
-      billingName: billing.fullName,
-      billingEmail: billing.emailAddress,
-      billingPhone: billing.phoneNumber,
-      courseTitle: "Research Writing & AI: Beginner to Advanced",
-      totalAmount: "\u20B9900.00",
-    });
-    setLoading(false);
-    if (res.success) {
-      showToast("success", "Payment successful! Redirecting to your course...");
-      setTimeout(() => navigate("/course-play"), 1200);
-    } else {
-      showToast("error", res.error || "Checkout failed.");
-    }
-  };
 
   return (
     <Card className="flex flex-col w-full max-w-[512px] bg-white rounded-[20px] border border-solid shadow-[0px_1px_2px_-1px_#0000001a,0px_1px_3px_#0000001a] overflow-hidden">
@@ -126,11 +98,10 @@ export const OrderSummarySection = (): JSX.Element => {
           {/* Continue to Payment Button */}
           <div className="w-full py-2">
             <Button
-              onClick={handlePayment}
-              disabled={loading}
-              className="w-full h-12 bg-[#0072de] hover:bg-[#005bb5] rounded-[10px] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-base text-center tracking-[0] leading-5 disabled:opacity-60"
+              onClick={() => navigate("/course-play")}
+              className="w-full h-12 bg-[#0072de] hover:bg-[#005bb5] rounded-[10px] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-base text-center tracking-[0] leading-5"
             >
-              {loading ? "Processing..." : "Continue to Payment"}
+              Continue to Payment
             </Button>
           </div>
           {/* Disclaimer */}

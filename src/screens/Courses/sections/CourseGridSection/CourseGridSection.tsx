@@ -76,7 +76,7 @@ export const CourseGridSection = (): JSX.Element => {
   };
 
   return (
-    <div className="grid-desktop-3 w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] pt-12 sm:pt-20 pb-8 sm:pb-12">
+    <div className="grid-desktop-3 w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] pt-8 sm:pt-12 pb-8 sm:pb-12">
       {coursesData.map((course) => (
         <Card
           key={course.id}

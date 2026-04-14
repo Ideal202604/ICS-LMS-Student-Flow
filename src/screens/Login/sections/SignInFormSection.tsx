@@ -4,9 +4,6 @@ import { Button } from "../../../components/ui/button";
 import { Checkbox } from "../../../components/ui/checkbox";
 import { Label } from "../../../components/ui/label";
 import { Separator } from "../../../components/ui/separator";
-import { loginUser } from "../../../lib/api";
-import { useAuth } from "../../../lib/auth-context";
-import { showToast } from "../../../components/ui/toast";
 
 /** Social login provider config */
 const socialLoginOptions = [
@@ -26,27 +23,7 @@ const socialLoginOptions = [
 
 export const SignInFormSection = (): JSX.Element => {
   const [rememberMe, setRememberMe] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { setUser } = useAuth();
-
-  const handleLogin = async () => {
-    setError("");
-    setLoading(true);
-    const res = await loginUser({ email, password });
-    setLoading(false);
-    if (res.success && res.data) {
-      setUser(res.data);
-      showToast("success", `Welcome back, ${res.data.fullName}!`);
-      navigate("/");
-    } else {
-      setError(res.error || "Login failed.");
-      showToast("error", res.error || "Login failed.");
-    }
-  };
 
   return (
     <div className="flex w-full max-w-[526px] flex-col items-start gap-6">
@@ -82,8 +59,6 @@ export const SignInFormSection = (): JSX.Element => {
                 id="email"
                 type="email"
                 placeholder="Enter your Email Address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 bg-transparent border-none outline-none [font-family:'Open_Sans',Helvetica] font-normal text-slate-400 text-base tracking-[0] leading-6 placeholder:text-slate-400"
               />
             </div>
@@ -107,9 +82,6 @@ export const SignInFormSection = (): JSX.Element => {
                 id="password"
                 type="password"
                 placeholder="Enter your Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onKeyDown={(e) => { if (e.key === "Enter") handleLogin(); }}
                 className="flex-1 bg-transparent border-none outline-none [font-family:'Open_Sans',Helvetica] font-normal text-slate-400 text-base tracking-[0] leading-6 placeholder:text-slate-400"
               />
             </div>
@@ -137,19 +109,10 @@ export const SignInFormSection = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Error message */}
-        {error && (
-          <p className="w-full text-red-500 text-sm [font-family:'Open_Sans',Helvetica] font-semibold text-center">{error}</p>
-        )}
-
         {/* Login button */}
-        <Button
-          onClick={handleLogin}
-          disabled={loading}
-          className="w-full h-auto flex items-center justify-center gap-2.5 px-[26px] py-3.5 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5] disabled:opacity-60"
-        >
+        <Button className="w-full h-auto flex items-center justify-center gap-2.5 px-[26px] py-3.5 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5]">
           <span className="text-app-background text-lg [font-family:'Open_Sans',Helvetica] font-semibold tracking-[0] leading-6 whitespace-nowrap">
-            {loading ? "Signing in..." : "Login"}
+            Login
           </span>
         </Button>
       </div>
