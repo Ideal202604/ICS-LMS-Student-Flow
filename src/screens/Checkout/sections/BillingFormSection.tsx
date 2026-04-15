@@ -28,14 +28,14 @@ export const BillingFormSection = (): JSX.Element => {
           </p>
         </div>
       </div>
-      {/* Billing Details Card */}
-      <Card className="w-full bg-white rounded-2xl border border-solid border-[hsl(var(--border))]">
+      {/* Billing Details Card — matches Figma: w-[714px] fixed width on desktop, full-width on mobile */}
+      <Card className="w-full lg:w-[714px] bg-white rounded-2xl border border-solid border-[hsl(var(--border))]">
         <CardHeader className="pt-[25px] px-[25px] pb-0">
           <CardTitle className="[font-family:'Open_Sans',Helvetica] font-semibold text-gray-800 text-2xl tracking-[0] leading-7">
             Billing Details
           </CardTitle>
         </CardHeader>
-        <CardContent className="px-[25px] pt-6 pb-px flex flex-col gap-5">
+        <CardContent className="px-[25px] pt-6 pb-6 flex flex-col gap-5">
           {billingFields.map((field) => (
             <div key={field.id} className="flex flex-col gap-2 w-full">
               {/* Label with required asterisk */}
@@ -48,7 +48,7 @@ export const BillingFormSection = (): JSX.Element => {
                   *
                 </span>
               </Label>
-              {/* Input field styled to match the design */}
+              {/* Input field styled to match Figma design */}
               <Input
                 id={field.id}
                 placeholder={field.placeholder}

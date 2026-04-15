@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -81,28 +80,16 @@ export const TestimonialCarouselSection = (): JSX.Element => {
   return (
     <div className="w-full flex flex-col items-center gap-8">
       {/* Outer wrapper: arrows sit outside the track via negative margin, track is full-width */}
-      <div className="w-full flex items-center gap-3">
+      <div className="w-full flex items-center gap-12">
 
         {/* ← Left Arrow */}
-        <button
-          onClick={prev}
-          aria-label="Previous"
-          style={{ width: ARROW_SIZE, height: ARROW_SIZE, flexShrink: 0 }}
-          className="
-            flex items-center justify-center
-            rounded-full bg-white
-            border-2 border-gray-200
-            shadow-[0_2px_8px_rgba(0,0,0,0.12)]
-            text-gray-600
-            hover:bg-[#0072de] hover:text-white hover:border-[#0072de]
-            hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,114,222,0.35)]
-            active:scale-95
-            transition-all duration-200
-            cursor-pointer
-          "
-        >
-          <ChevronLeft strokeWidth={2.5} style={{ width: 20, height: 20 }} />
-        </button>
+        <div className="flex-shrink-0" onClick={prev}>
+          <img
+            className="w-11 h-11 cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-200"
+            alt="Previous"
+            src="https://c.animaapp.com/mnyh1m5aMKY8e5/img/layer-3.png"
+          />
+        </div>
 
         {/* Sliding Track */}
         <div
@@ -158,25 +145,13 @@ export const TestimonialCarouselSection = (): JSX.Element => {
         </div>
 
         {/* → Right Arrow */}
-        <button
-          onClick={next}
-          aria-label="Next"
-          style={{ width: ARROW_SIZE, height: ARROW_SIZE, flexShrink: 0 }}
-          className="
-            flex items-center justify-center
-            rounded-full bg-white
-            border-2 border-gray-200
-            shadow-[0_2px_8px_rgba(0,0,0,0.12)]
-            text-gray-600
-            hover:bg-[#0072de] hover:text-white hover:border-[#0072de]
-            hover:scale-110 hover:shadow-[0_4px_16px_rgba(0,114,222,0.35)]
-            active:scale-95
-            transition-all duration-200
-            cursor-pointer
-          "
-        >
-          <ChevronRight strokeWidth={2.5} style={{ width: 20, height: 20 }} />
-        </button>
+        <div className="flex-shrink-0" onClick={next}>
+          <img
+            className="w-11 h-11 cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-200"
+            alt="Next"
+            src="https://c.animaapp.com/mnyh1m5aMKY8e5/img/layer-2.png"
+          />
+        </div>
       </div>
 
       {/* Dot indicators */}

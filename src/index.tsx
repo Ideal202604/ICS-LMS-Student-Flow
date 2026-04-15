@@ -25,6 +25,7 @@ createRoot(document.getElementById("app") as HTMLElement).render(
           <Route path="/about" element={<About />} />
           <Route path="/courses/:courseSlug" element={<CoursesDetails />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/course-play/:courseSlug" element={<CoursePlay />} />
           <Route path="/course-play" element={<CoursePlay />} />
         </Routes>
       </BrowserRouter>

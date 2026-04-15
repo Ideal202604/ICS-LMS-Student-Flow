@@ -187,9 +187,9 @@ export const Courses = (): JSX.Element => {
       </div>
 
       {/* Hero Section */}
-      <div id="hero" className="relative w-full overflow-y-auto" style={{ maxHeight: "calc(100vh - 81px)" }}>
+      <div id="hero" className="relative w-full min-h-[320px] sm:min-h-[420px] md:min-h-[540px] lg:min-h-[655px] flex items-center overflow-hidden">
         <img
-          className="w-full h-[260px] sm:h-[380px] md:h-[500px] lg:h-[655px] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-01.png"
           loading="eager"
@@ -197,17 +197,16 @@ export const Courses = (): JSX.Element => {
           decoding="async"
         />
         <img
-          className="absolute top-0 left-0 w-full h-[260px] sm:h-[380px] md:h-[500px] lg:h-[655px] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           alt="Screan"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg"
           loading="eager"
           fetchPriority="high"
           decoding="async"
         />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
+        <div className="relative z-10 w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] py-10 sm:py-14 md:py-16">
           <HeroCourseIntroductionSection />
         </div>
-
       </div>
 
       {/* Main content sections */}

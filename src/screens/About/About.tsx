@@ -165,7 +165,7 @@ export const About = (): JSX.Element => {
       </div>
 
       {/* Hero Banner Section */}
-      <section className="relative w-full min-h-[220px] sm:min-h-[320px] md:min-h-[500px] lg:min-h-[600px] flex items-center overflow-hidden">
+      <section className="relative w-full min-h-[320px] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[620px] flex items-center overflow-hidden">
         {/* Base background image — same as Courses page */}
         <img
           className="absolute inset-0 w-full h-full object-cover"

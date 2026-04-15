@@ -12,7 +12,7 @@ export const HeroCourseIntroductionSection = (): JSX.Element => {
 
           {/* Heading + Description */}
           <div className="flex flex-col items-start gap-3 md:gap-4 relative self-stretch w-full">
-            <h1 className="w-full [text-shadow:0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl tracking-[0] leading-tight lg:leading-[84px]">
+            <h1 className="w-full [text-shadow:0px_3px_4px_#00000040] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-2xl sm:text-4xl md:text-5xl lg:text-[72px] tracking-[0] leading-tight lg:leading-[84px]">
               Lorem ipsum dolor sit amet consectetur In.
             </h1>
 

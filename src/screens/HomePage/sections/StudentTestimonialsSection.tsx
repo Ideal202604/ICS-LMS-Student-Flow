@@ -1,7 +1,7 @@
 // Testimonial card data — exactly matching Figma reference (mnwt10e4B9BeSJ)
 const testimonials = [
   {
-    reviewImg: "https://c.animaapp.com/mnwt10e4B9BeSJ/img/review.png",
+    reviewImg: "https://c.animaapp.com/mnyh1m5aMKY8e5/img/review.png",
     quote: '"We love Landingfolio! Our designers were using it for their projects, so we already knew what kind of design they want."',
     authorName: "Jenny Wilson",
     authorNameWidth: "w-[101px]",
@@ -9,11 +9,11 @@ const testimonials = [
     companyWidth: "w-[74px]",
     authorGap: "gap-[18px]",
     authorContainerWidth: "w-[197px]",
-    bgImg: "https://c.animaapp.com/mnwt10e4B9BeSJ/img/bg.png",
+    bgImg: "https://c.animaapp.com/mnyh1m5aMKY8e5/img/bg.png",
     bgRounded: "",
   },
   {
-    reviewImg: "https://c.animaapp.com/mnwt10e4B9BeSJ/img/review-1.png",
+    reviewImg: "https://c.animaapp.com/mnyh1m5aMKY8e5/img/review-1.png",
     quote: '"We love Landingfolio! Our designers were using it for their projects, so we already knew what kind of design they want."',
     authorName: "Devon Lane",
     authorNameWidth: "w-[92px]",
@@ -21,7 +21,7 @@ const testimonials = [
     companyWidth: "w-[93px]",
     authorGap: "gap-2.5",
     authorContainerWidth: "w-[199px]",
-    bgImg: "https://c.animaapp.com/mnwt10e4B9BeSJ/img/bg-1.png",
+    bgImg: "https://c.animaapp.com/mnyh1m5aMKY8e5/img/bg-1.png",
     bgRounded: "rounded-[15px]",
   },
 ];

@@ -54,7 +54,7 @@ export const HeroBannerSection = (): JSX.Element => {
           <img
             className="flex-shrink-0"
             alt="Frame"
-            src="https://c.animaapp.com/mnwpw3l9jXfMum/img/frame-1321317793.svg"
+            src="https://c.animaapp.com/mnyh1m5aMKY8e5/img/frame-1321317793.svg"
           />
           <span className="[font-family:'Open_Sans',Helvetica] font-normal text-white text-lg tracking-[0] leading-7 whitespace-nowrap">
             (4.9/5) Rated by 10,000+ Students.

@@ -79,7 +79,7 @@ export const CoursesDetails = (): JSX.Element => {
   return (
     <div className="relative w-full min-h-screen bg-white overflow-x-hidden">
       {/* Navigation Bar */}
-      <header className="w-full h-[81px] bg-white flex items-center justify-between px-4 md:px-6 relative z-50 shadow-sm">
+      <header className="w-full h-[81px] bg-white flex items-center justify-between px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px] relative z-50 shadow-sm">
         <div className="flex items-center flex-shrink-0">
           <Link to="/">
             <img
@@ -176,18 +176,18 @@ export const CoursesDetails = (): JSX.Element => {
       </div>
 
       {/* Hero Section with Background */}
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden min-h-[360px] sm:min-h-[440px] md:min-h-[560px] lg:min-h-[640px]">
         <img
-          className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           alt="Course Background"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-01.png"
         />
         <img
-          className="absolute top-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           alt="Overlay"
           src="https://c.animaapp.com/mnmyaijxgewU4q/img/screan-2.svg"
         />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center px-4 sm:px-8 md:px-12 lg:px-16">
+        <div className="relative z-10 w-full h-full flex items-center px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
           <CourseHeroBannerSection
             title={course.title}
             category={course.category}
@@ -195,13 +195,15 @@ export const CoursesDetails = (): JSX.Element => {
             originalPrice={course.originalPrice}
             discountedPrice={course.discountedPrice}
             discount={course.discount}
+            image={course.image}
+            courseSlug={course.slug}
           />
         </div>
       </div>
 
       {/* Main Content */}
       <main className="relative w-full flex flex-col pt-8 md:pt-12">
-        <CourseDetailLayoutSection />
+        <CourseDetailLayoutSection courseImage={course.image} courseTitle={course.title} courseSlug={course.slug} />
       </main>
 
       {/* Floating Chat Widget */}

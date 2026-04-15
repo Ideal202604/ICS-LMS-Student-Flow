@@ -28,6 +28,8 @@ export interface EnrollmentCheckoutModalProps {
   originalPrice?: string;
   /** Banner image URL */
   bannerImage?: string;
+  /** Course slug — used to populate OrderSummary on /checkout */
+  courseSlug?: string;
   /** Callback when Proceed to Checkout is clicked */
   onCheckout?: () => void;
 }
@@ -44,6 +46,7 @@ export const EnrollmentCheckoutModal = ({
   coursePrice = "₹900.00 inc. tax",
   originalPrice = "₹1,500",
   bannerImage,
+  courseSlug,
   onCheckout,
 }: EnrollmentCheckoutModalProps): JSX.Element | null => {
   const [couponCode, setCouponCode] = useState("");
@@ -209,7 +212,15 @@ export const EnrollmentCheckoutModal = ({
                   onCheckout();
                 } else {
                   onClose();
-                  navigate("/checkout");
+                  navigate("/checkout", {
+                    state: {
+                      courseTitle: title,
+                      courseImage: bannerImage || null,
+                      courseSlug: courseSlug || null,
+                      coursePrice,
+                      originalPrice,
+                    },
+                  });
                 }
               }}
               className="flex-1 h-auto px-4 py-3 bg-[#0072de] hover:bg-[#005bb5] rounded-[10px] border-0 [font-family:'Open_Sans',Helvetica] font-semibold text-white text-base text-center leading-5 whitespace-nowrap"

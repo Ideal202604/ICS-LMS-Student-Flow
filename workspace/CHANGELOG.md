@@ -18,6 +18,80 @@ You MUST maintain this file to track your work across messages. This is NON-NEGO
 </instructions>
 
 <changelog>
+## 2026-04-15 (carousel arrow gap)
+- Increased gap between arrows and card track in TestimonialCarouselSection from gap-6 to gap-12
+- File: src/screens/About/sections/TestimonialCarouselSection.tsx
+
+## 2026-04-15 (syllabus alignment)
+- Aligned "Syllabus" text in CoursePlay header to match px-6 left padding of "Course Analytics" row
+- Moved padding from `mr-6` on separator to `px-6` on the span itself for consistent left alignment
+- File: src/screens/CoursePlay/CoursePlay.tsx
+
+## 2026-04-15 (apostrophe fix)
+- Fixed "What You&#39;ll Learn" → "What You'll Learn" in CourseDetailLayoutSection and CourseOverviewDetailSection
+- Files: src/screens/CourseDetails/sections/CourseDetailLayoutSection.tsx, src/screens/CoursePlay/sections/CourseOverviewDetailSection.tsx
+
+## 2026-04-15 (course image consistency)
+- Unified all course thumbnail images to use mnmyaijxgewU4q CDN across every page
+- "Research Writing & AI" → rectangle-9796-4.png, "Digital Marketing Using AI" → rectangle-9796-5.png
+- Updated: CourseGridSection, FeaturedCoursesSection, ExploreCoursesSectionHP (all 6 cards)
+- courseData.ts already had correct images — now all card grids match it
+
+## 2026-04-15 (course images wired)
+- CoursePlay left panel now shows course-specific image (from courseData) based on URL :courseSlug param
+- CourseHeroBannerSection (CoursePlay) accepts title prop → shows "Introduction to [course title]"
+- CourseDetailLayoutSection accepts courseImage/courseTitle/courseSlug props → shows real thumbnail in sidebar card
+- EnrollmentCheckoutModal passes { courseTitle, courseImage, courseSlug, coursePrice } via navigate state to /checkout
+- OrderSummarySection reads location.state → shows correct course image, title, price; navigates to /course-play/:slug
+- Files: CoursePlay.tsx, CourseHeroBannerSection.tsx (x2), CourseDetailLayoutSection.tsx, enrollment-checkout-modal.tsx, OrderSummarySection.tsx, CoursesDetails.tsx
+
+## 2026-04-15 (syllabus timeline)
+- Added vertical blue connector line between lesson icons in CourseSyllabusSidebarSection
+- Icons now render inside blue rounded squares (bg-[#1a56db] w-10 h-10 rounded-xl) with white icon via invert filter
+- Blue `w-[2px] bg-[#1a56db]` line connects each icon to the next; hidden on last item
+- File: src/screens/CoursePlay/sections/CourseSyllabusSidebarSection.tsx
+
+## 2026-04-15 (back button fix)
+- Fixed back arrow (layer-2.png) in CoursePlay navbar — was non-functional, now uses `useNavigate` + `navigate(-1)`
+- Clicking back now returns to the previous page in history (e.g. /checkout → /course-play → back → /checkout)
+- Added `cursor-pointer hover:opacity-70` for visual affordance
+- File: src/screens/CoursePlay/CoursePlay.tsx
+
+## 2026-04-15 (global margin alignment)
+- Standardized horizontal padding to `px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]` across all pages
+- Fixed CoursesDetails.tsx: navbar was `px-4 md:px-6`, hero content was `px-4 sm:px-8 md:px-12 lg:px-16`
+- Fixed ContactHeroBannerSection.tsx: was `px-5 sm:px-8 md:px-14 lg:px-16 xl:px-[200px] 2xl:px-[264px]`
+- Fixed CourseDetailLayoutSection.tsx: main content `max-w-[1400px] px-4`, footer `px-[108px]` → both standardized
+- Files: CoursesDetails.tsx, ContactHeroBannerSection.tsx, CourseDetailLayoutSection.tsx
+
+## 2026-04-15 (course grid card redesign)
+- Rebuilt CourseGridSection cards to match FeaturedCoursesSection (HomePage) design exactly
+- Updated all icons to use mnx2ynhlJmDJf4 CDN assets (rating, badges, discount, details, start)
+- Cards now use `min-h-[559px]`, `h-auto` thumbnail, full description text, animate-slide-in-up + hover lift
+- File: src/screens/Courses/sections/CourseGridSection/CourseGridSection.tsx
+
+## 2026-04-14 (about carousel arrows)
+- Replaced ChevronLeft/ChevronRight button arrows in About TestimonialCarouselSection with HomePage-style image arrows (layer-3.png left, layer-2.png right)
+- Removed lucide-react ChevronLeft/ChevronRight imports — no longer needed
+- File: src/screens/About/sections/TestimonialCarouselSection.tsx
+
+## 2026-04-14 (testimonial arrows)
+- Fixed testimonial section arrows: removed asymmetric px-[220px] padding, now uses standard section padding xl:px-[200px] 2xl:px-[264px]
+- Both arrows (layer-3 left, layer-2 right) are now flush and equidistant from the two student feedback cards
+- File: src/screens/HomePage/HomePage.tsx
+
+## 2026-04-14 (explore courses card fix)
+- Rebuilt ExploreCoursesSectionHP cards to exactly match CourseGridSection (Courses page) layout
+- Badges row: `flex items-center justify-between w-full gap-2` with `flex-1` on each pill
+- Buttons row: `flex items-center gap-2 w-full` with `flex-1` on each button — equal halves edge-to-edge
+- File: src/screens/HomePage/sections/ExploreCoursesSectionHP.tsx
+
+## 2026-04-14 (card alignment)
+- Fixed badge row (Lessons/Online/3 Months) & button row (Details/Start Learning) alignment in course cards
+- Both rows now use `flex justify-between` + `flex-1` so left and right edges are perfectly equal on all screen sizes
+- Applied to both FeaturedCoursesSection (HomePage) and CourseGridSection (Courses page)
+- Files: src/screens/HomePage/sections/FeaturedCoursesSection.tsx, src/screens/Courses/sections/CourseGridSection/CourseGridSection.tsx
+
 ## 2026-04-14 (latest)
 - Fixed GlobalFooterSection: added useNavigate, EnrollmentCheckoutModal, social links open in new tab
 - Quick Links now navigate correctly (Home→/, All Courses→/courses, Contact Us→/contact)

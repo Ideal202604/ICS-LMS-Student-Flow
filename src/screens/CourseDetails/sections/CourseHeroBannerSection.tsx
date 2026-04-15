@@ -27,6 +27,8 @@ interface CourseHeroBannerSectionProps {
   originalPrice: string;
   discountedPrice: string;
   discount: string;
+  image?: string;
+  courseSlug?: string;
 }
 
 export const CourseHeroBannerSection = ({
@@ -36,6 +38,8 @@ export const CourseHeroBannerSection = ({
   originalPrice,
   discountedPrice,
   discount,
+  image,
+  courseSlug,
 }: CourseHeroBannerSectionProps): JSX.Element => {
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
 
@@ -128,6 +132,8 @@ export const CourseHeroBannerSection = ({
         title={title}
         coursePrice={discountedPrice + " inc. tax"}
         originalPrice={originalPrice}
+        bannerImage={image}
+        courseSlug={courseSlug}
       />
     </>
   );

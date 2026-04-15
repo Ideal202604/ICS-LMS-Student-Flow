@@ -1,6 +1,6 @@
 export const ContactHeroBannerSection = (): JSX.Element => {
   return (
-    <div className="w-full px-5 sm:px-8 md:px-14 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
+    <div className="w-full px-3 sm:px-6 md:px-8 lg:px-16 xl:px-[200px] 2xl:px-[264px]">
       <div
         className="flex flex-col items-start gap-4 sm:gap-5"
         style={{ maxWidth: "clamp(280px, 55vw, 580px)" }}

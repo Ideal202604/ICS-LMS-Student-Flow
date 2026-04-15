@@ -1,10 +1,25 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent, CardHeader } from "../../../components/ui/card";
 import { Separator } from "../../../components/ui/separator";
 
+interface CheckoutLocationState {
+  courseTitle?: string;
+  courseImage?: string;
+  courseSlug?: string;
+  coursePrice?: string;
+  originalPrice?: string;
+}
+
 export const OrderSummarySection = (): JSX.Element => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const state = (location.state as CheckoutLocationState) || {};
+
+  const courseTitle = state.courseTitle || "Research Writing & AI: Beginner to Advanced";
+  const courseImage = state.courseImage || "https://c.animaapp.com/mnx1h5hfns5K3g/img/image--the-complete-web-development-bootcamp-.png";
+  const courseSlug = state.courseSlug || "research-writing-ai";
+  const coursePrice = state.coursePrice || "₹900.00 inc. tax";
 
   return (
     <Card className="flex flex-col w-full max-w-[512px] bg-white rounded-[20px] border border-solid shadow-[0px_1px_2px_-1px_#0000001a,0px_1px_3px_#0000001a] overflow-hidden">
@@ -22,12 +37,10 @@ export const OrderSummarySection = (): JSX.Element => {
       <CardContent className="flex flex-col gap-0 p-0">
         {/* Course Thumbnail */}
         <div className="mx-6 mb-0">
-          <div
-            className="w-full h-[200px] rounded-2xl bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url(https://c.animaapp.com/mnx1h5hfns5K3g/img/image--the-complete-web-development-bootcamp-.png)",
-            }}
+          <img
+            className="w-full h-[200px] rounded-2xl object-cover"
+            alt={courseTitle}
+            src={courseImage}
           />
         </div>
         {/* Course Info */}
@@ -37,7 +50,7 @@ export const OrderSummarySection = (): JSX.Element => {
             {/* Title and Author */}
             <div className="flex flex-col gap-2">
               <h3 className="[font-family:'Open_Sans',Helvetica] font-semibold text-gray-800 text-2xl tracking-[0] leading-8">
-                Research Writing &amp; AI: Beginner to Advanced
+                {courseTitle}
               </h3>
               <p className="[font-family:'Open_Sans',Helvetica] font-normal text-gray-500 text-base tracking-[0] leading-5">
                 by Michael Rodriguez
@@ -81,7 +94,7 @@ export const OrderSummarySection = (): JSX.Element => {
                 Course Price
               </span>
               <span className="[font-family:'Inter',Helvetica] font-medium text-gray-800 text-base tracking-[0] leading-6 whitespace-nowrap">
-                ₹900.00 inc. tax
+                {coursePrice}
               </span>
             </div>
             <Separator className="mb-4" />
@@ -91,14 +104,14 @@ export const OrderSummarySection = (): JSX.Element => {
                 Total Amount
               </span>
               <span className="[font-family:'Inter',Helvetica] font-bold text-[#0072de] text-2xl tracking-[0] leading-8 whitespace-nowrap">
-                ₹900.00
+                {coursePrice}
               </span>
             </div>
           </div>
           {/* Continue to Payment Button */}
           <div className="w-full py-2">
             <Button
-              onClick={() => navigate("/course-play")}
+              onClick={() => navigate(`/course-play/${courseSlug}`)}
               className="w-full h-12 bg-[#0072de] hover:bg-[#005bb5] rounded-[10px] [font-family:'Open_Sans',Helvetica] font-semibold text-white text-base text-center tracking-[0] leading-5"
             >
               Continue to Payment
