@@ -18,6 +18,16 @@ You MUST maintain this file to track your work across messages. This is NON-NEGO
 </instructions>
 
 <changelog>
+## 2026-04-16 (button inline fix v2)
+- Replaced Button component with plain `<button>` elements in CourseGridSection action row
+- Applied `flex-1 min-w-0` directly on each button (direct flex children) — guarantees true side-by-side layout
+- Removed intermediate wrapper divs; Button component's `inline-flex` base was preventing correct flex-1 distribution
+- File: src/screens/Courses/sections/CourseGridSection/CourseGridSection.tsx
+
+## 2026-04-16 (remove second course grid)
+- Removed the duplicate CourseGridSection from Courses.tsx main section
+- File: src/screens/Courses/Courses.tsx
+
 ## 2026-04-15 (carousel arrow gap)
 - Increased gap between arrows and card track in TestimonialCarouselSection from gap-6 to gap-12
 - File: src/screens/About/sections/TestimonialCarouselSection.tsx

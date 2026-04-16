@@ -148,26 +148,27 @@ export const CourseGridSection = (): JSX.Element => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-2 sm:gap-3 w-full">
-              <Button
-                variant="outline"
+            <div className="flex flex-row gap-2 sm:gap-3 w-full">
+              <button
+                type="button"
                 onClick={() => navigate(`/courses/${course.slug}`)}
-                className="btn-animate flex-1 h-auto flex items-center justify-center gap-2 sm:gap-2.5 px-3 sm:px-6 py-2.5 sm:py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-[#e9f6ff]"
+                className="flex-1 min-w-0 flex items-center justify-center gap-2 sm:gap-2.5 px-3 sm:px-6 py-2.5 sm:py-3 bg-white rounded-xl border border-solid border-[#8ab5dd] hover:bg-[#e9f6ff] transition-colors cursor-pointer"
               >
                 <img className="w-5 sm:w-6 h-5 sm:h-6 shrink-0" alt="Details" src={course.detailsIcon} />
-                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-sm sm:text-lg tracking-[0] leading-6 whitespace-nowrap">
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-[#0072de] text-sm sm:text-base tracking-[0] leading-6 whitespace-nowrap">
                   Details
                 </span>
-              </Button>
-              <Button
+              </button>
+              <button
+                type="button"
                 onClick={() => setEnrollModal({ open: true, title: course.title, price: course.currentPrice + " inc. tax", originalPrice: course.originalPrice })}
-                className="btn-animate flex-1 h-auto flex items-center justify-center gap-2 sm:gap-2.5 px-3 sm:px-6 py-2.5 sm:py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5]"
+                className="flex-1 min-w-0 flex items-center justify-center gap-2 sm:gap-2.5 px-3 sm:px-6 py-2.5 sm:py-3 bg-[#0072de] rounded-xl border border-solid border-[#8ab5dd] shadow-[0px_3px_4px_#00000040] hover:bg-[#005bb5] transition-colors cursor-pointer"
               >
                 <img className="w-5 sm:w-6 h-5 sm:h-6 shrink-0" alt="Start Learning" src={course.startIcon} />
-                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-app-background text-sm sm:text-lg tracking-[0] leading-6 whitespace-nowrap">
+                <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-sm sm:text-base tracking-[0] leading-6 whitespace-nowrap">
                   Start Learning
                 </span>
-              </Button>
+              </button>
             </div>
 
           </CardContent>
